@@ -1,86 +1,107 @@
-import { Check } from "lucide-react";
+import { Smartphone, Shield, Brain, Users, Umbrella, Leaf, Check } from "lucide-react";
 
 export default function PlatformMatrix() {
-  const features = [
+  const platformFeatures = [
     {
-      category: "Device Agnostic Compatible",
-      core: true,
-      pro: true,
-      enterprise: true
+      icon: Smartphone,
+      title: "Device Agnostic",
+      items: [
+        "Compatible with any Assets",
+        "Multi OBU Capability OEM"
+      ],
+      color: "text-blue-600 bg-blue-50"
     },
     {
-      category: "Fleet Safety & Driver Performance",
-      core: true,
-      pro: true,
-      enterprise: true
+      icon: Shield,
+      title: "Fleet Safety",
+      items: [
+        "Driver Performance Monitoring",
+        "Driver rewards & Incentives"
+      ],
+      color: "text-green-600 bg-green-50"
     },
     {
-      category: "AI/ML Predictive Maintenance",
-      core: false,
-      pro: true,
-      enterprise: true
+      icon: Brain,
+      title: "AI / ML",
+      items: [
+        "Predictive vehicle maintenance",
+        "Customized driver coaching",
+        "Smart route optimizing"
+      ],
+      color: "text-purple-600 bg-purple-50"
     },
     {
-      category: "Smart Route Optimization",
-      core: false,
-      pro: true,
-      enterprise: true
+      icon: Users,
+      title: "3rd Party Integration",
+      items: [
+        "Payroll & HR Systems",
+        "Digital Payments",
+        "Workshops and Repairs"
+      ],
+      color: "text-blue-600 bg-blue-50"
     },
     {
-      category: "GHG Accounting & Carbon Credits",
-      core: false,
-      pro: false,
-      enterprise: true
+      icon: Umbrella,
+      title: "Insurance as a Service",
+      items: [
+        "Usage based Insurance",
+        "FNOL (First Notice of Loss)",
+        "Road Side Assistance"
+      ],
+      color: "text-teal-600 bg-teal-50"
     },
     {
-      category: "Insurance as a Service",
-      core: false,
-      pro: false,
-      enterprise: true
+      icon: Leaf,
+      title: "GHG Accounting",
+      items: [
+        "Carbon Credits",
+        "GHG Quota trading",
+        "Carbon trading marketplace"
+      ],
+      color: "text-green-600 bg-green-50"
     }
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4" data-testid="text-platform-title">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight" data-testid="text-platform-title">
             ROQIT Integrated Platform
           </h2>
-          <p className="text-xl text-gray-600" data-testid="text-platform-description">
-            Comprehensive platform capabilities across all business functions
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto" data-testid="text-platform-description">
+            Comprehensive features covering every aspect of fleet management and optimization
           </p>
         </div>
         
-        <div className="bg-white rounded-2xl shadow-xl p-8 overflow-x-auto" data-testid="platform-matrix-table">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-4 px-4 font-semibold text-dark">Feature Category</th>
-                <th className="text-center py-4 px-4 font-semibold text-dark">Core</th>
-                <th className="text-center py-4 px-4 font-semibold text-dark">Pro</th>
-                <th className="text-center py-4 px-4 font-semibold text-dark">Enterprise</th>
-              </tr>
-            </thead>
-            <tbody>
-              {features.map((feature, index) => (
-                <tr key={index} className="border-b border-gray-100 hover:bg-gray-50" data-testid={`feature-row-${index}`}>
-                  <td className="py-4 px-4 font-medium" data-testid={`feature-name-${index}`}>
-                    {feature.category}
-                  </td>
-                  <td className="py-4 px-4 text-center" data-testid={`feature-core-${index}`}>
-                    {feature.core ? <Check className="text-primary mx-auto" size={20} /> : "-"}
-                  </td>
-                  <td className="py-4 px-4 text-center" data-testid={`feature-pro-${index}`}>
-                    {feature.pro ? <Check className="text-secondary mx-auto" size={20} /> : "-"}
-                  </td>
-                  <td className="py-4 px-4 text-center" data-testid={`feature-enterprise-${index}`}>
-                    {feature.enterprise ? <Check className="text-accent mx-auto" size={20} /> : "-"}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-testid="platform-features-grid">
+          {platformFeatures.map((feature, index) => {
+            const IconComponent = feature.icon;
+            return (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
+                data-testid={`platform-feature-${index}`}
+              >
+                <div className={`w-12 h-12 ${feature.color} rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
+                  <IconComponent size={24} />
+                </div>
+                
+                <h3 className="text-xl font-semibold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300" data-testid={`platform-feature-title-${index}`}>
+                  {feature.title}
+                </h3>
+                
+                <ul className="space-y-3">
+                  {feature.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="flex items-start gap-3" data-testid={`platform-feature-item-${index}-${itemIndex}`}>
+                      <Check className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                      <span className="text-slate-600 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
