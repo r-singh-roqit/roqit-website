@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, UserCheck, Wrench, Smartphone, Route, Truck, Battery, BarChart3 } from "lucide-react";
+import { MapPin, UserCheck, Wrench, Smartphone, Route, Truck, Battery, BarChart3, Leaf, FileText, TrendingDown, Shield } from "lucide-react";
 
 export default function SolutionsSection() {
   const fleetFeatures = [
@@ -48,6 +48,29 @@ export default function SolutionsSection() {
     }
   ];
 
+  const complianceFeatures = [
+    {
+      icon: Leaf,
+      title: "Carbon Footprint Tracking",
+      description: "Monitor and measure your fleet's environmental impact in real-time"
+    },
+    {
+      icon: FileText,
+      title: "ESG Reporting",
+      description: "Automated compliance reports for sustainability regulations"
+    },
+    {
+      icon: TrendingDown,
+      title: "Emission Reduction",
+      description: "AI-driven recommendations to reduce greenhouse gas emissions"
+    },
+    {
+      icon: Shield,
+      title: "Regulatory Compliance",
+      description: "Stay compliant with environmental and safety regulations"
+    }
+  ];
+
   return (
     <section id="solutions" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,7 +114,7 @@ export default function SolutionsSection() {
           </div>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="lg:order-2">
             <h3 className="text-2xl font-bold text-dark mb-6" data-testid="text-operational-title">Operational Optimization</h3>
             <div className="space-y-4 mb-8">
@@ -118,6 +141,37 @@ export default function SolutionsSection() {
               alt="Logistics analytics and optimization dashboard" 
               className="rounded-2xl shadow-xl" 
               data-testid="img-operational-optimization"
+            />
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-2xl font-bold text-dark mb-6" data-testid="text-compliance-title">Compliance & Carbon Accounting</h3>
+            <div className="space-y-4 mb-8">
+              {complianceFeatures.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                  <div key={index} className="flex items-start space-x-3" data-testid={`feature-compliance-${index}`}>
+                    <IconComponent className="text-accent mt-1" size={20} />
+                    <div>
+                      <h4 className="font-semibold text-dark">{feature.title}</h4>
+                      <p className="text-gray-600">{feature.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <Button className="bg-accent text-white hover:bg-green-600" data-testid="button-learn-more-compliance">
+              Learn More
+            </Button>
+          </div>
+          <div>
+            <img 
+              src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+              alt="Environmental compliance and carbon tracking dashboard" 
+              className="rounded-2xl shadow-xl" 
+              data-testid="img-compliance-carbon"
             />
           </div>
         </div>
