@@ -3,51 +3,133 @@ import { Link } from "wouter";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-gray-50 to-light py-20 lg:py-32">
+    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 lg:py-32 overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-lg">
-            <h1 className="text-4xl lg:text-6xl font-bold text-dark leading-tight mb-6" data-testid="text-hero-title">
-              The future of <span className="text-primary">sustainable asset intelligence</span> starts here
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20 mb-6">
+              🚀 AI-Powered Fleet Intelligence
+            </div>
+            
+            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6 tracking-tight" data-testid="text-hero-title">
+              The future of 
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> sustainable asset intelligence</span> 
+              starts here
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed" data-testid="text-hero-description">
+            
+            <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-xl" data-testid="text-hero-description">
               ROQIT is a modular, AI powered platform re-imagining how businesses manage and optimize assets - mobile or stationary - to unlock operational efficiency and measurable ESG impact.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Link href="/contact" data-testid="button-contact-us">
-                <Button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent transition-colors transform hover:scale-105">
+                <Button className="bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-primary/25">
                   Contact Us
                 </Button>
               </Link>
               <Button 
                 variant="outline" 
-                className="border border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:border-primary hover:text-primary transition-colors"
+                className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl font-semibold hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300"
                 data-testid="button-watch-demo"
               >
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M8 5v10l7-5z"/>
+                </svg>
                 Watch Demo
               </Button>
             </div>
-          </div>
-          <div className="relative">
-            {/* Hero dashboard mockup */}
-            <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-              alt="Fleet management dashboard interface" 
-              className="rounded-2xl shadow-2xl" 
-              data-testid="img-hero-dashboard"
-            />
             
-            {/* Floating metrics cards */}
-            <div className="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg p-4 transform rotate-3" data-testid="card-co2-metric">
-              <div className="text-sm text-gray-500">CO2 Saved</div>
-              <div className="text-2xl font-bold text-primary">3.6 <span className="text-sm">Kgs</span></div>
-              <div className="text-xs text-primary">↑ 12% from last week</div>
+            {/* Trust indicators */}
+            <div className="flex items-center gap-6 text-sm text-slate-500">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                30-40% Cost Reduction
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                30 Day Deployment
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                AI-Powered
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative lg:ml-8">
+            {/* Modern dashboard mockup */}
+            <div className="relative bg-white rounded-3xl shadow-2xl border border-slate-200 p-6" data-testid="dashboard-mockup">
+              {/* Dashboard header */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg"></div>
+                  <span className="font-semibold text-slate-900">ROQIT Dashboard</span>
+                </div>
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+              </div>
+              
+              {/* Dashboard content */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4">
+                  <div className="text-sm text-blue-600 mb-1">Active Vehicles</div>
+                  <div className="text-2xl font-bold text-blue-900">847</div>
+                  <div className="text-xs text-blue-600">↑ 12% this week</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4">
+                  <div className="text-sm text-green-600 mb-1">CO2 Saved</div>
+                  <div className="text-2xl font-bold text-green-900">3.6t</div>
+                  <div className="text-xs text-green-600">↑ 8% this week</div>
+                </div>
+              </div>
+              
+              {/* Chart simulation */}
+              <div className="bg-slate-50 rounded-xl p-4 mb-4">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-sm font-medium text-slate-700">Fleet Performance</span>
+                  <span className="text-xs text-slate-500">Real-time</span>
+                </div>
+                <div className="h-20 flex items-end gap-1">
+                  {[65, 78, 45, 88, 67, 92, 55, 83, 77, 90, 68, 85].map((height, i) => (
+                    <div 
+                      key={i} 
+                      className="bg-gradient-to-t from-primary to-accent rounded-t flex-1"
+                      style={{ height: `${height}%` }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Bottom stats */}
+              <div className="flex justify-between text-xs text-slate-500">
+                <span>Efficiency: 94.2%</span>
+                <span>Cost Savings: $127k</span>
+              </div>
             </div>
             
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 transform -rotate-2" data-testid="card-efficiency-metric">
-              <div className="text-sm text-gray-500">Cost Efficiency</div>
-              <div className="text-2xl font-bold text-secondary">30-40%</div>
-              <div className="text-xs text-gray-500">lower than competitors</div>
+            {/* Floating metrics cards with modern design */}
+            <div className="absolute -top-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 transform rotate-3 backdrop-blur-sm" data-testid="card-ai-insights">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-slate-700">AI Insights</span>
+              </div>
+              <div className="text-lg font-bold text-slate-900">Route optimized</div>
+              <div className="text-xs text-purple-600">+15% efficiency</div>
+            </div>
+            
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 transform -rotate-2 backdrop-blur-sm" data-testid="card-carbon-credits">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-slate-700">Carbon Credits</span>
+              </div>
+              <div className="text-lg font-bold text-slate-900">1,240</div>
+              <div className="text-xs text-green-600">Generated this month</div>
             </div>
           </div>
         </div>

@@ -59,16 +59,23 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-light">
+    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20 mb-6">
+            💬 Get In Touch
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight" data-testid="text-contact-title">
+            Ready to improve your business?
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12" data-testid="text-contact-description">
+            Join thousands of businesses already using ROQIT to communicate with moving assets and optimize their operations.
+          </p>
+        </div>
+        
         <div className="grid lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-6" data-testid="text-contact-title">
-              Ready to improve your business?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8" data-testid="text-contact-description">
-              Join thousands of businesses already using ROQIT to communicate with moving assets and optimize their operations.
-            </p>
+          <div className="bg-white/70 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
             
             <div className="space-y-6">
               <div className="flex items-center space-x-4" data-testid="contact-info-phone">
@@ -103,8 +110,8 @@ export default function ContactSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl shadow-xl p-8" data-testid="contact-form-container">
-            <h3 className="text-2xl font-bold text-dark mb-6" data-testid="text-contact-form-title">Contact Us</h3>
+          <div className="bg-white/70 backdrop-blur-sm border border-slate-200/60 rounded-2xl shadow-xl p-8" data-testid="contact-form-container">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6" data-testid="text-contact-form-title">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -216,7 +223,7 @@ export default function ContactSection() {
               
               <Button 
                 type="submit" 
-                className="w-full bg-primary text-white hover:bg-accent"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 rounded-xl py-3 font-medium"
                 disabled={contactMutation.isPending}
                 data-testid="button-submit-contact"
               >
