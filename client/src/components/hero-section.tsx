@@ -16,7 +16,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" data-testid="button-contact-us">
                 <Button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent transition-colors transform hover:scale-105">
-                  Contact Us Today
+                  Contact Us
                 </Button>
               </Link>
               <Button 
