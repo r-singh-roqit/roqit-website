@@ -2,7 +2,6 @@ import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import BenefitsSection from "@/components/benefits-section";
 import StatsSection from "@/components/stats-section";
-import DashboardPreview from "@/components/dashboard-preview";
 import SolutionsSection from "@/components/solutions-section";
 import PlatformMatrix from "@/components/platform-matrix";
 import MobileFeatures from "@/components/mobile-features";
@@ -18,7 +17,6 @@ export default function Home() {
       <HeroSection />
       <BenefitsSection />
       <StatsSection />
-      <DashboardPreview />
       <SolutionsSection />
       <PlatformMatrix />
       <MobileFeatures />
