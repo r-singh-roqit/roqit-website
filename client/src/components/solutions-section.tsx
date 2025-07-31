@@ -168,8 +168,8 @@ export default function SolutionsSection() {
           </div>
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-              alt="Environmental compliance and carbon tracking dashboard" 
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+              alt="Green renewable energy and environmental sustainability concept" 
               className="rounded-2xl shadow-xl" 
               data-testid="img-compliance-carbon"
             />
