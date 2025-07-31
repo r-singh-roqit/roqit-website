@@ -16,7 +16,7 @@ export default function HeroSection() {
             
             <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6 tracking-tight" data-testid="text-hero-title">
               The future of 
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> sustainable asset intelligence</span> 
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> sustainable asset intelligence </span> 
               starts here
             </h1>
             
