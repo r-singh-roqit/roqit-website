@@ -28,7 +28,7 @@ export default function Navigation() {
                 <img 
                   src={theme === 'dark' ? roqitLogoWhite : roqitLogo} 
                   alt="ROQIT" 
-                  className="h-10 w-auto object-contain"
+                  className="h-14 w-auto object-contain"
                 />
               </Link>
             </div>
