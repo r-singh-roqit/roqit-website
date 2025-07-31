@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+
 import { MapPin, UserCheck, Wrench, Smartphone, Route, Truck, Battery, BarChart3, Leaf, FileText, TrendingDown, Shield } from "lucide-react";
 
 export default function SolutionsSection() {
@@ -107,9 +107,7 @@ export default function SolutionsSection() {
                 );
               })}
             </div>
-            <Button className="bg-primary text-white hover:bg-accent" data-testid="button-learn-more-fleet">
-              Learn More
-            </Button>
+
           </div>
           <div>
             <img 
@@ -138,9 +136,7 @@ export default function SolutionsSection() {
                 );
               })}
             </div>
-            <Button className="bg-secondary text-white hover:bg-blue-600" data-testid="button-learn-more-operational">
-              Learn More
-            </Button>
+
           </div>
           <div className="lg:order-1">
             <img 
@@ -169,9 +165,7 @@ export default function SolutionsSection() {
                 );
               })}
             </div>
-            <Button className="bg-accent text-white hover:bg-green-600" data-testid="button-learn-more-compliance">
-              Learn More
-            </Button>
+
           </div>
           <div>
             <img 
