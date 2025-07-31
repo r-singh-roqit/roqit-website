@@ -70,29 +70,7 @@ export default function StatsSection() {
             </div>
           ))}
         </div>
-        
-        {/* Company trust section */}
-        <div className="text-center">
-          <p className="text-slate-400 mb-12 text-sm uppercase tracking-wider font-medium">Trusted by industry leaders</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {[
-              "Olectra Greentech",
-              "Tata Motors", 
-              "Mahindra",
-              "Ashok Leyland",
-              "Hero MotoCorp",
-              "TVS Motors"
-            ].map((company, index) => (
-              <div 
-                key={index}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-3 text-white font-semibold text-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:scale-105"
-                data-testid={`company-${index}`}
-              >
-                {company}
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );
