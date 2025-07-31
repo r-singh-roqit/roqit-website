@@ -72,13 +72,13 @@ export default function SolutionsSection() {
   ];
 
   return (
-    <section id="solutions" className="py-20 bg-white">
+    <section id="solutions" className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4" data-testid="text-solutions-title">
+          <h2 className="text-3xl lg:text-4xl font-bold text-dark dark:text-white mb-4" data-testid="text-solutions-title">
             Comprehensive Solutions
           </h2>
-          <p className="text-xl text-gray-600" data-testid="text-solutions-description">
+          <p className="text-xl text-gray-600 dark:text-gray-300" data-testid="text-solutions-description">
             Everything you need to manage and optimize your fleet operations
           </p>
         </div>

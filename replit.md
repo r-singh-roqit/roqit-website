@@ -14,7 +14,8 @@ Preferred communication style: Simple, everyday language.
 - **Framework**: React 18 with TypeScript
 - **Bundler**: Vite for development and production builds
 - **UI Framework**: shadcn/ui components built on Radix UI primitives
-- **Styling**: Tailwind CSS with custom design tokens
+- **Styling**: Tailwind CSS with custom design tokens and dark mode support
+- **Theme System**: Custom React Context for light/dark mode with localStorage persistence
 - **Routing**: Wouter for client-side routing
 - **State Management**: TanStack Query for server state management
 - **Form Handling**: React Hook Form with Zod validation
@@ -36,17 +37,19 @@ The application uses Drizzle ORM with PostgreSQL dialect, featuring:
 
 ### Frontend Components
 1. **Page Components**: Home, About, Contact, and 404 pages
-2. **Layout Components**: Navigation, Footer with responsive design
+2. **Layout Components**: Navigation with theme toggle, Footer with responsive design
 3. **Business Components**: 
-   - Hero section with call-to-action
+   - Hero section with call-to-action and dashboard background
    - Benefits showcase
    - Dashboard preview mockups
-   - Solutions overview
+   - Solutions overview with green sustainability imagery
    - Platform feature matrix
+   - Analytics showcase with transparent dashboard background
    - Sustainability metrics
    - Testimonials
    - Contact form with validation
 4. **UI Components**: Complete shadcn/ui component library
+5. **Theme Components**: Dark/Light mode toggle with system preference detection
 
 ### Backend Components
 1. **Routes**: Contact form submission and retrieval endpoints
@@ -120,4 +123,13 @@ The application uses Drizzle ORM with PostgreSQL dialect, featuring:
 - **Build Process**: Separate frontend and backend compilation
 - **Static Assets**: Served from Express in production mode
 
-The application follows a modern full-stack architecture with strong type safety, component reusability, and scalable data management patterns. The modular design allows for easy feature extension and maintenance.
+## Recent Changes (July 31, 2025)
+- **Dark Mode Implementation**: Added comprehensive dark mode support throughout the website
+- **Theme Toggle**: Implemented theme toggle button in navigation with system preference detection
+- **ROQIT Branding**: Integrated authentic ROQIT logos across navigation, footer, and dashboard components
+- **Hero Background**: Applied high-resolution ETO dashboard as subtle background with 40% opacity
+- **Analytics Showcase**: Created new section with transparent dashboard background for visual depth
+- **Green Imagery**: Updated Compliance & Carbon Accounting section with environmental sustainability imagery
+- **Hero Spacing**: Fixed spacing issue in hero statement between "intelligence" and "starts"
+
+The application follows a modern full-stack architecture with strong type safety, component reusability, dark mode theming, and scalable data management patterns. The modular design allows for easy feature extension and maintenance.

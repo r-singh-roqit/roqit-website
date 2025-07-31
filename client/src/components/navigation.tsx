@@ -3,10 +3,14 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import roqitLogo from "@assets/ROQIT_solid_black_blue_horizontal_1753942131887.jpg";
+import roqitLogoWhite from "@assets/ROQIT_solid_white_blue_horizontal_1753942131887.jpg";
+import ThemeToggle from "./theme-toggle";
+import { useTheme } from "@/contexts/theme-context";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { theme } = useTheme();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -15,14 +19,14 @@ export default function Navigation() {
   const isActive = (path: string) => location === path;
 
   return (
-    <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50 transition-all duration-300">
+    <nav className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-700/60 sticky top-0 z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link href="/" data-testid="link-home">
                 <img 
-                  src={roqitLogo} 
+                  src={theme === 'dark' ? roqitLogoWhite : roqitLogo} 
                   alt="ROQIT" 
                   className="h-8 w-auto object-contain"
                 />
@@ -31,36 +35,38 @@ export default function Navigation() {
             <div className="hidden md:block ml-10">
               <div className="flex items-center space-x-8">
                 <Link href="/#solutions" data-testid="link-solutions">
-                  <span className={`font-medium transition-colors duration-200 ${isActive('/#solutions') ? 'text-primary' : 'text-slate-600 hover:text-primary'}`}>
+                  <span className={`font-medium transition-colors duration-200 ${isActive('/#solutions') ? 'text-primary' : 'text-slate-600 dark:text-slate-300 hover:text-primary'}`}>
                     Solutions
                   </span>
                 </Link>
                 <Link href="/#platform" data-testid="link-platform">
-                  <span className={`font-medium transition-colors duration-200 ${isActive('/#platform') ? 'text-primary' : 'text-slate-600 hover:text-primary'}`}>
+                  <span className={`font-medium transition-colors duration-200 ${isActive('/#platform') ? 'text-primary' : 'text-slate-600 dark:text-slate-300 hover:text-primary'}`}>
                     Platform
                   </span>
                 </Link>
                 <Link href="/about" data-testid="link-about">
-                  <span className={`font-medium transition-colors duration-200 ${isActive('/about') ? 'text-primary' : 'text-slate-600 hover:text-primary'}`}>
+                  <span className={`font-medium transition-colors duration-200 ${isActive('/about') ? 'text-primary' : 'text-slate-600 dark:text-slate-300 hover:text-primary'}`}>
                     About
                   </span>
                 </Link>
                 <Link href="/contact" data-testid="link-contact">
-                  <span className={`font-medium transition-colors duration-200 ${isActive('/contact') ? 'text-primary' : 'text-slate-600 hover:text-primary'}`}>
+                  <span className={`font-medium transition-colors duration-200 ${isActive('/contact') ? 'text-primary' : 'text-slate-600 dark:text-slate-300 hover:text-primary'}`}>
                     Contact
                   </span>
                 </Link>
               </div>
             </div>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Link href="/contact" data-testid="button-get-started">
               <Button className="bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 rounded-xl px-6 py-2 font-medium">
                 Get Started
               </Button>
             </Link>
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"
@@ -75,19 +81,19 @@ export default function Navigation() {
       
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200" data-testid="mobile-menu">
+        <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700" data-testid="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link href="/#solutions" data-testid="mobile-link-solutions">
-              <div className="block px-3 py-2 text-gray-600 hover:text-primary">Solutions</div>
+              <div className="block px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-primary">Solutions</div>
             </Link>
             <Link href="/#platform" data-testid="mobile-link-platform">
-              <div className="block px-3 py-2 text-gray-600 hover:text-primary">Platform</div>
+              <div className="block px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-primary">Platform</div>
             </Link>
             <Link href="/about" data-testid="mobile-link-about">
-              <div className="block px-3 py-2 text-gray-600 hover:text-primary">About</div>
+              <div className="block px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-primary">About</div>
             </Link>
             <Link href="/contact" data-testid="mobile-link-contact">
-              <div className="block px-3 py-2 text-gray-600 hover:text-primary">Contact</div>
+              <div className="block px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-primary">Contact</div>
             </Link>
             <Link href="/contact" data-testid="mobile-button-get-started">
               <Button className="w-full bg-gradient-to-r from-primary to-accent text-white mt-2 rounded-xl font-medium">

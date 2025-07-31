@@ -27,7 +27,7 @@ export default function AnalyticsShowcase() {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 overflow-hidden">
       {/* Dashboard Background */}
       <div className="absolute inset-0 opacity-10">
         <img 

@@ -5,7 +5,7 @@ import roqitLogoSmall from "@assets/ROQIT_solid_black_blue_horizontal_1753942131
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-20 lg:py-32 overflow-hidden">
       {/* High-res dashboard background */}
       <div className="absolute inset-0 opacity-40">
         <img 
@@ -28,13 +28,13 @@ export default function HeroSection() {
               🚀 AI-Powered Fleet Intelligence
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6 tracking-tight" data-testid="text-hero-title">
+            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-tight mb-6 tracking-tight" data-testid="text-hero-title">
               The future of 
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> sustainable asset intelligence </span> 
               starts here
             </h1>
             
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-xl" data-testid="text-hero-description">
+            <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-xl" data-testid="text-hero-description">
               ROQIT is a modular, AI powered platform re-imagining how businesses manage and optimize assets - mobile or stationary - to unlock operational efficiency and measurable ESG impact.
             </p>
             
@@ -75,7 +75,7 @@ export default function HeroSection() {
           
           <div className="relative lg:ml-8">
             {/* Modern dashboard mockup */}
-            <div className="relative bg-white rounded-3xl shadow-2xl border border-slate-200 p-6" data-testid="dashboard-mockup">
+            <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6" data-testid="dashboard-mockup">
               {/* Dashboard header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ export default function HeroSection() {
                     alt="ROQIT" 
                     className="h-6 w-auto object-contain"
                   />
-                  <span className="font-semibold text-slate-900">Dashboard</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">Dashboard</span>
                 </div>
                 <div className="flex gap-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>

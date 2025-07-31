@@ -65,15 +65,31 @@
     color: hsl(210, 17%, 23%);
   }
   
+  .dark .text-dark {
+    color: hsl(0, 0%, 98%);
+  }
+  
   .bg-light {
     background-color: hsl(210, 20%, 98%);
+  }
+  
+  .dark .bg-light {
+    background-color: hsl(240, 10%, 3.9%);
   }
   
   .text-light {
     color: hsl(210, 20%, 98%);
   }
   
+  .dark .text-light {
+    color: hsl(240, 10%, 3.9%);
+  }
+  
   .bg-dark {
     background-color: hsl(210, 17%, 23%);
+  }
+  
+  .dark .bg-dark {
+    background-color: hsl(240, 3.7%, 15.9%);
   }
 }
