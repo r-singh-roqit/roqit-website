@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Linkedin, Twitter, Facebook } from "lucide-react";
+import roqitLogoWhite from "@assets/ROQIT_solid_white_blue_horizontal_1753942131887.jpg";
 
 export default function Footer() {
   return (
@@ -7,7 +8,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="text-2xl font-bold text-primary mb-4" data-testid="text-footer-logo">ROQIT</div>
+            <img 
+              src={roqitLogoWhite} 
+              alt="ROQIT" 
+              className="h-8 w-auto object-contain mb-4"
+              data-testid="image-footer-logo"
+            />
             <p className="text-gray-300 mb-6 max-w-md" data-testid="text-footer-description">
               AI-powered platform re-imagining how businesses manage and optimize assets to unlock operational efficiency and measurable ESG impact.
             </p>

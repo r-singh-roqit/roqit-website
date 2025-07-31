@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import roqitLogo from "@assets/ROQIT_solid_black_blue_horizontal_1753942131887.jpg";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,10 +21,11 @@ export default function Navigation() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link href="/" data-testid="link-home">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg"></div>
-                  <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">ROQIT</span>
-                </div>
+                <img 
+                  src={roqitLogo} 
+                  alt="ROQIT" 
+                  className="h-8 w-auto object-contain"
+                />
               </Link>
             </div>
             <div className="hidden md:block ml-10">

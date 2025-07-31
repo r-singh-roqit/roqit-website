@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import dashboardBackground from "@assets/Screenshot at Jul 31 11-27-30_1753941475513.png";
+import roqitLogoSmall from "@assets/ROQIT_solid_black_blue_horizontal_1753942131887.jpg";
 
 export default function HeroSection() {
   return (
@@ -78,8 +79,12 @@ export default function HeroSection() {
               {/* Dashboard header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg"></div>
-                  <span className="font-semibold text-slate-900">ROQIT Dashboard</span>
+                  <img 
+                    src={roqitLogoSmall} 
+                    alt="ROQIT" 
+                    className="h-6 w-auto object-contain"
+                  />
+                  <span className="font-semibold text-slate-900">Dashboard</span>
                 </div>
                 <div className="flex gap-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
