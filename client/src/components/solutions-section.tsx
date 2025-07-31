@@ -92,7 +92,7 @@ export default function SolutionsSection() {
         
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div>
-            <h3 className="text-2xl font-bold text-dark mb-6" data-testid="text-fleet-management-title">Fleet Management</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6" data-testid="text-fleet-management-title">Fleet Management</h3>
             <div className="space-y-4 mb-8">
               {fleetFeatures.map((feature, index) => {
                 const IconComponent = feature.icon;
@@ -100,8 +100,8 @@ export default function SolutionsSection() {
                   <div key={index} className="flex items-start space-x-3" data-testid={`feature-fleet-${index}`}>
                     <IconComponent className="text-primary mt-1" size={20} />
                     <div>
-                      <h4 className="font-semibold text-dark">{feature.title}</h4>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <h4 className="font-semibold text-slate-900 dark:text-white">{feature.title}</h4>
+                      <p className="text-slate-600 dark:text-slate-300">{feature.description}</p>
                     </div>
                   </div>
                 );
@@ -121,7 +121,7 @@ export default function SolutionsSection() {
         
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="lg:order-2">
-            <h3 className="text-2xl font-bold text-dark mb-6" data-testid="text-operational-title">Operational Optimization</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6" data-testid="text-operational-title">Operational Optimization</h3>
             <div className="space-y-4 mb-8">
               {operationalFeatures.map((feature, index) => {
                 const IconComponent = feature.icon;
@@ -129,8 +129,8 @@ export default function SolutionsSection() {
                   <div key={index} className="flex items-start space-x-3" data-testid={`feature-operational-${index}`}>
                     <IconComponent className="text-secondary mt-1" size={20} />
                     <div>
-                      <h4 className="font-semibold text-dark">{feature.title}</h4>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <h4 className="font-semibold text-slate-900 dark:text-white">{feature.title}</h4>
+                      <p className="text-slate-600 dark:text-slate-300">{feature.description}</p>
                     </div>
                   </div>
                 );
@@ -150,7 +150,7 @@ export default function SolutionsSection() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold text-dark mb-6" data-testid="text-compliance-title">Compliance & Carbon Accounting</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6" data-testid="text-compliance-title">Compliance & Carbon Accounting</h3>
             <div className="space-y-4 mb-8">
               {complianceFeatures.map((feature, index) => {
                 const IconComponent = feature.icon;
@@ -158,8 +158,8 @@ export default function SolutionsSection() {
                   <div key={index} className="flex items-start space-x-3" data-testid={`feature-compliance-${index}`}>
                     <IconComponent className="text-accent mt-1" size={20} />
                     <div>
-                      <h4 className="font-semibold text-dark">{feature.title}</h4>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <h4 className="font-semibold text-slate-900 dark:text-white">{feature.title}</h4>
+                      <p className="text-slate-600 dark:text-slate-300">{feature.description}</p>
                     </div>
                   </div>
                 );
