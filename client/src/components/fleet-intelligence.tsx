@@ -1,9 +1,40 @@
 import { useState, useEffect } from "react";
 import { TrendingUp, Calendar, MapPin, AlertTriangle, Truck } from "lucide-react";
 
+interface Activity {
+  id: number;
+  type: string;
+  vehicle: string;
+  action: string;
+  location: string;
+  time: Date;
+  timeString: string;
+  status: string;
+  efficiency: string;
+}
+
+interface VehicleMetrics {
+  total: number;
+  allocated: number;
+  unallocated: number;
+  maintenance: number;
+  allocatedPercentage: number;
+}
+
 export default function FleetIntelligence() {
   const [selectedHub, setSelectedHub] = useState("City Hub");
-  const [currentDate, setCurrentDate] = useState("08/05/2025");
+  const [currentDate, setCurrentDate] = useState("");
+
+  // Set current date when component mounts
+  useEffect(() => {
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit', 
+      year: 'numeric'
+    });
+    setCurrentDate(formattedDate);
+  }, []);
 
   // Simulated real-time data that updates
   const [metrics, setMetrics] = useState({
@@ -26,28 +57,73 @@ export default function FleetIntelligence() {
     allocated: 300
   });
 
-  const [recentActivity, setRecentActivity] = useState([
-    {
-      id: 1,
-      type: "success",
-      vehicle: "MH-01-AB-1234",
-      action: "completed delivery",
-      location: "Mumbai → Pune",
-      time: "2 hours ago",
-      status: "Efficient Route",
-      efficiency: "42 km/kWh"
-    },
-    {
-      id: 2,
-      type: "warning",
-      vehicle: "KA-05-CD-5678",
-      action: "Hard braking detected",
-      location: "Vehicle KA-05-CD-5678",
-      time: "1 hour ago",
-      status: "Action Required",
-      efficiency: "Driver coaching"
+  const [recentActivity, setRecentActivity] = useState<Activity[]>([]);
+
+  // Generate dynamic recent activity with real timestamps
+  useEffect(() => {
+    const generateRecentActivity = () => {
+      const now = new Date();
+      const activities = [
+        {
+          id: 1,
+          type: "success",
+          vehicle: "MH-01-AB-1234",
+          action: "completed delivery",
+          location: "Mumbai → Pune",
+          time: new Date(now.getTime() - 2 * 60 * 60 * 1000), // 2 hours ago
+          status: "Efficient Route",
+          efficiency: "42 km/kWh"
+        },
+        {
+          id: 2,
+          type: "warning", 
+          vehicle: "KA-05-CD-5678",
+          action: "Hard braking detected",
+          location: "Vehicle KA-05-CD-5678",
+          time: new Date(now.getTime() - 1 * 60 * 60 * 1000), // 1 hour ago
+          status: "Action Required",
+          efficiency: "Driver coaching"
+        },
+        {
+          id: 3,
+          type: "success",
+          vehicle: "DL-03-EF-9012",
+          action: "route optimization",
+          location: "Delhi → Gurgaon",
+          time: new Date(now.getTime() - 30 * 60 * 1000), // 30 minutes ago
+          status: "Optimized",
+          efficiency: "38 km/kWh"
+        }
+      ];
+
+      // Format time as relative string
+      const formattedActivities = activities.map(activity => ({
+        ...activity,
+        timeString: formatTimeAgo(activity.time)
+      }));
+
+      setRecentActivity(formattedActivities);
+    };
+
+    generateRecentActivity();
+    
+    // Update activity times every minute
+    const interval = setInterval(generateRecentActivity, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Helper function to format time ago
+  const formatTimeAgo = (date: Date): string => {
+    const now = new Date();
+    const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
+    
+    if (diffInMinutes < 60) {
+      return `${diffInMinutes} minutes ago`;
+    } else {
+      const hours = Math.floor(diffInMinutes / 60);
+      return `${hours} hour${hours > 1 ? 's' : ''} ago`;
     }
-  ]);
+  };
 
   // Different data sets based on selected hub
   const hubData = {
@@ -56,7 +132,7 @@ export default function FleetIntelligence() {
       distance: { value: 14908, change: 5, trend: "up", unit: "Km" },
       drivingEfficiency: { value: 4.98, change: 7, trend: "up", unit: "Km/kWh" },
       co2Saved: { value: 3.6, change: 12, trend: "up", unit: "Kgs" },
-      vehicles: { total: 600, allocated: 480, unallocated: 120, maintenance: 0 },
+      vehicles: { total: 600, allocated: 480, unallocated: 120, maintenance: 0, allocatedPercentage: 80 },
       drivers: { active: 400, allocated: 380 }
     },
     "Regional Hub": {
@@ -64,7 +140,7 @@ export default function FleetIntelligence() {
       distance: { value: 22340, change: 15, trend: "up", unit: "Km" },
       drivingEfficiency: { value: 5.22, change: 3, trend: "up", unit: "Km/kWh" },
       co2Saved: { value: 5.8, change: 18, trend: "up", unit: "Kgs" },
-      vehicles: { total: 450, allocated: 320, unallocated: 100, maintenance: 30 },
+      vehicles: { total: 450, allocated: 320, unallocated: 100, maintenance: 30, allocatedPercentage: 71 },
       drivers: { active: 280, allocated: 250 }
     },
     "Main Hub": {
@@ -72,7 +148,7 @@ export default function FleetIntelligence() {
       distance: { value: 31200, change: 9, trend: "up", unit: "Km" },
       drivingEfficiency: { value: 4.75, change: 4, trend: "up", unit: "Km/kWh" },
       co2Saved: { value: 8.2, change: 25, trend: "up", unit: "Kgs" },
-      vehicles: { total: 850, allocated: 720, unallocated: 100, maintenance: 30 },
+      vehicles: { total: 850, allocated: 720, unallocated: 100, maintenance: 30, allocatedPercentage: 85 },
       drivers: { active: 620, allocated: 580 }
     }
   };
@@ -290,7 +366,7 @@ export default function FleetIntelligence() {
                       </div>
                       <div className="text-sm text-slate-600 flex items-center gap-1">
                         <MapPin size={12} />
-                        {activity.location} • {activity.time}
+                        {activity.location} • {activity.timeString}
                       </div>
                     </div>
                   </div>
