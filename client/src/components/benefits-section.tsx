@@ -1,9 +1,9 @@
-import { DollarSign, MapPin, Rocket, Plug } from "lucide-react";
+import { IndianRupee, MapPin, Rocket, Plug } from "lucide-react";
 
 export default function BenefitsSection() {
   const benefits = [
     {
-      icon: DollarSign,
+      icon: IndianRupee,
       title: "Cost Efficiency",
       description: "Reduce operational costs by up to 40% with optimized fleet management and intelligent resource allocation.",
       metric: "40%",
