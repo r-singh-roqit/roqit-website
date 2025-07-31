@@ -58,11 +58,12 @@
   body {
     @apply antialiased bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Sora', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   /* Button styles */
@@ -74,6 +75,7 @@
   /* Ensure proper font hierarchy */
   p, span, div, li, td, th, label, input, textarea {
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
 
   /* Specific weight variants for better typography */
@@ -86,11 +88,11 @@
   }
 
   .font-bold {
-    font-weight: 700;
+    font-weight: 600; /* Consistent with Sora headings */
   }
 
   .font-extrabold {
-    font-weight: 800;
+    font-weight: 600; /* Consistent with Sora headings */
   }
 }
 
