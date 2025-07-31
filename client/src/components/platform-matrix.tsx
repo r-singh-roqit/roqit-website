@@ -88,25 +88,30 @@ export default function PlatformMatrix() {
             return (
               <div 
                 key={index}
-                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/20 hover:border-white/30 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group relative overflow-hidden"
+                className="bg-white/15 backdrop-blur-xl border border-white/30 rounded-3xl p-8 hover:bg-white/25 hover:border-white/40 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group relative overflow-hidden shadow-2xl"
                 data-testid={`platform-feature-${index}`}
               >
-                <div className={`w-12 h-12 ${feature.color} rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
-                  <IconComponent size={24} />
+                {/* Enhanced background for better contrast */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-3xl"></div>
+                
+                <div className="relative z-10">
+                  <div className={`w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg`}>
+                    <IconComponent className="text-2xl text-white" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-200 transition-colors duration-300" data-testid={`platform-feature-title-${index}`}>
+                    {feature.title}
+                  </h3>
+                  
+                  <ul className="space-y-3">
+                    {feature.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-start gap-3" data-testid={`platform-feature-item-${index}-${itemIndex}`}>
+                        <Check className="text-blue-300 mt-0.5 flex-shrink-0" size={16} />
+                        <span className="text-slate-200 text-sm leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <h3 className="text-xl font-semibold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300" data-testid={`platform-feature-title-${index}`}>
-                  {feature.title}
-                </h3>
-                
-                <ul className="space-y-3">
-                  {feature.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start gap-3" data-testid={`platform-feature-item-${index}-${itemIndex}`}>
-                      <Check className="text-primary mt-0.5 flex-shrink-0" size={16} />
-                      <span className="text-slate-600 text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             );
           })}
