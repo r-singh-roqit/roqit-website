@@ -116,7 +116,7 @@ export default function HeroSection() {
               {/* Bottom stats */}
               <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
                 <span>Efficiency: 94.2%</span>
-                <span>Cost Savings: $127k</span>
+                <span>Cost Savings: ₹127k</span>
               </div>
             </div>
             
