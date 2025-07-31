@@ -1,13 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import dashboardBackground from "@assets/Screenshot at Jul 31 11-27-30_1753941475513.png";
 
 export default function HeroSection() {
   return (
     <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 lg:py-32 overflow-hidden">
+      {/* High-res dashboard background */}
+      <div className="absolute inset-0 opacity-5">
+        <img 
+          src={dashboardBackground}
+          alt="Fleet management dashboard"
+          className="w-full h-full object-cover object-center scale-110"
+        />
+      </div>
+      
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Overlay gradient for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/80 via-blue-50/70 to-indigo-50/80"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
             <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20 mb-6">
