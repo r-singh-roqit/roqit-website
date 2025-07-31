@@ -6,7 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Tahoma', 'sans-serif'],
+        'sans': ['Inter', 'sans-serif'],
+        'heading': ['Sora', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
