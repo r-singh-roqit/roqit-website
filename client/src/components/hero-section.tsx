@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 lg:py-32 overflow-hidden">
       {/* High-res dashboard background */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-40">
         <img 
           src={dashboardBackground}
           alt="Fleet management dashboard"
