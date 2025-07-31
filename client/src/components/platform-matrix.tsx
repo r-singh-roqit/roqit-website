@@ -63,14 +63,22 @@ export default function PlatformMatrix() {
   ];
 
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-grid-white/[0.05] -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-500/5 to-purple-500/5 -z-10"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight" data-testid="text-platform-title">
-            ROQIT Integrated Platform
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-medium bg-white/10 text-white ring-1 ring-inset ring-white/20 mb-8 backdrop-blur-sm">
+            🎯 Platform Features
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-tight" data-testid="text-platform-title">
+            Integrated 
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"> platform capabilities</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto" data-testid="text-platform-description">
-            Comprehensive features covering every aspect of fleet management and optimization
+          <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="text-platform-description">
+            Advanced features and integrations designed to transform your fleet operations
           </p>
         </div>
         
@@ -80,7 +88,7 @@ export default function PlatformMatrix() {
             return (
               <div 
                 key={index}
-                className="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/20 hover:border-white/30 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group relative overflow-hidden"
                 data-testid={`platform-feature-${index}`}
               >
                 <div className={`w-12 h-12 ${feature.color} rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>

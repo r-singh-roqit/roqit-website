@@ -72,14 +72,21 @@ export default function SolutionsSection() {
   ];
 
   return (
-    <section id="solutions" className="py-20 bg-white dark:bg-slate-900">
+    <section id="solutions" className="py-24 bg-gradient-to-br from-white via-slate-50 to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-dark dark:text-white mb-4" data-testid="text-solutions-title">
-            Comprehensive Solutions
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+        
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-medium bg-gradient-to-r from-primary/10 to-accent/10 text-primary ring-1 ring-inset ring-primary/20 mb-8 backdrop-blur-sm">
+            🚀 Complete Solutions
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight leading-tight" data-testid="text-solutions-title">
+            Everything you need for 
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"> modern fleet management</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300" data-testid="text-solutions-description">
-            Everything you need to manage and optimize your fleet operations
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="text-solutions-description">
+            Comprehensive tools and features designed to optimize every aspect of your fleet operations
           </p>
         </div>
         
