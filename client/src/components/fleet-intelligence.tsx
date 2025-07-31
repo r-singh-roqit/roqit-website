@@ -49,6 +49,44 @@ export default function FleetIntelligence() {
     }
   ]);
 
+  // Different data sets based on selected hub
+  const hubData = {
+    "City Hub": {
+      totalTrips: { value: 40689, change: 12, trend: "up" },
+      distance: { value: 14908, change: 5, trend: "up", unit: "Km" },
+      drivingEfficiency: { value: 4.98, change: 7, trend: "up", unit: "Km/kWh" },
+      co2Saved: { value: 3.6, change: 12, trend: "up", unit: "Kgs" },
+      vehicles: { total: 600, allocated: 480, unallocated: 120, maintenance: 0 },
+      drivers: { active: 400, allocated: 380 }
+    },
+    "Regional Hub": {
+      totalTrips: { value: 28945, change: 8, trend: "up" },
+      distance: { value: 22340, change: 15, trend: "up", unit: "Km" },
+      drivingEfficiency: { value: 5.22, change: 3, trend: "up", unit: "Km/kWh" },
+      co2Saved: { value: 5.8, change: 18, trend: "up", unit: "Kgs" },
+      vehicles: { total: 450, allocated: 320, unallocated: 100, maintenance: 30 },
+      drivers: { active: 280, allocated: 250 }
+    },
+    "Main Hub": {
+      totalTrips: { value: 52178, change: 22, trend: "up" },
+      distance: { value: 31200, change: 9, trend: "up", unit: "Km" },
+      drivingEfficiency: { value: 4.75, change: 4, trend: "up", unit: "Km/kWh" },
+      co2Saved: { value: 8.2, change: 25, trend: "up", unit: "Kgs" },
+      vehicles: { total: 850, allocated: 720, unallocated: 100, maintenance: 30 },
+      drivers: { active: 620, allocated: 580 }
+    }
+  };
+
+  // Update metrics when hub changes
+  useEffect(() => {
+    const data = hubData[selectedHub as keyof typeof hubData];
+    if (data) {
+      setMetrics(data);
+      setVehicleMetrics(data.vehicles);
+      setDriverMetrics(data.drivers);
+    }
+  }, [selectedHub]);
+
   // Simulate real-time updates
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,37 +104,37 @@ export default function FleetIntelligence() {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight" data-testid="text-fleet-intelligence-title">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="text-fleet-intelligence-title">
             Real-time Fleet Intelligence
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto" data-testid="text-fleet-intelligence-description">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto" data-testid="text-fleet-intelligence-description">
             Comprehensive dashboards providing actionable insights into your fleet performance and efficiency
           </p>
         </div>
 
         {/* Dashboard Container */}
-        <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 p-8 max-w-6xl mx-auto" data-testid="fleet-operations-dashboard">
+        <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 p-8 max-w-6xl mx-auto" data-testid="fleet-operations-dashboard">
           {/* Dashboard Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Fleet Operations Dashboard</h3>
-              <p className="text-slate-600">Real-time monitoring and analytics</p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Fleet Operations Dashboard</h3>
+              <p className="text-slate-600 dark:text-slate-300">Real-time monitoring and analytics</p>
             </div>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
               <select 
                 value={selectedHub} 
                 onChange={(e) => setSelectedHub(e.target.value)}
-                className="border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                className="border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 data-testid="select-hub"
               >
                 <option value="City Hub">City Hub</option>
                 <option value="Regional Hub">Regional Hub</option>
                 <option value="Main Hub">Main Hub</option>
               </select>
-              <div className="flex items-center gap-2 text-sm text-slate-600">
+              <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                 <Calendar size={16} />
                 <span>Date: {currentDate}</span>
               </div>

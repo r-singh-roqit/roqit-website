@@ -67,9 +67,7 @@ export default function AnalyticsShowcase() {
               </div>
             </div>
             
-            <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-blue-500/25" data-testid="button-explore-analytics">
-              Explore Analytics
-            </Button>
+
           </div>
           
           <div className="relative">

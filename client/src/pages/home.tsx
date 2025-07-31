@@ -17,15 +17,8 @@ export default function Home() {
     <div className="min-h-screen bg-white dark:bg-slate-900">
       <Navigation />
       <HeroSection />
-      <BenefitsSection />
-      <StatsSection />
       <FleetIntelligence />
       <AnalyticsShowcase />
-      <SolutionsSection />
-      <PlatformMatrix />
-      <MobileFeatures />
-      <SustainabilitySection />
-      <Testimonials />
       <ContactSection />
       <Footer />
     </div>
