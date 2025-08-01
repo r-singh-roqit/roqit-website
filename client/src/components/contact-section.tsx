@@ -94,7 +94,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-dark">Email</div>
-                  <div className="text-gray-600">contact@roqit.com</div>
+                  <div className="text-gray-600">info@roqit.com</div>
                 </div>
               </div>
               
@@ -104,7 +104,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-dark">Office</div>
-                  <div className="text-gray-600">Bangalore, India</div>
+                  <div className="text-gray-600">6th floor, Thub, Raidurgam, Knowledge City Rd, panmaktha, Hyderabad, Serilingampalle (M), Telangana 500081</div>
                 </div>
               </div>
             </div>
