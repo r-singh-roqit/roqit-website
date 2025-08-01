@@ -1,6 +1,7 @@
 import Navigation from "@/components/navigation";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import Chatbot from "@/components/chatbot";
 
 export default function Contact() {
   return (
@@ -20,6 +21,7 @@ export default function Contact() {
 
       <ContactSection />
       <Footer />
+      <Chatbot />
     </div>
   );
 }

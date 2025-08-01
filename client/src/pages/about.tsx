@@ -1,5 +1,6 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import Chatbot from "@/components/chatbot";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
@@ -122,6 +123,7 @@ export default function About() {
       </section>
 
       <Footer />
+      <Chatbot />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import Chatbot from "@/components/chatbot";
 
 export default function Privacy() {
   return (
@@ -163,6 +164,7 @@ export default function Privacy() {
       </section>
 
       <Footer />
+      <Chatbot />
     </div>
   );
 }

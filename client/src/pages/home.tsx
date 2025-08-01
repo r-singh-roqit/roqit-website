@@ -11,6 +11,7 @@ import SustainabilitySection from "@/components/sustainability-section";
 import Testimonials from "@/components/testimonials";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import Chatbot from "@/components/chatbot";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <Testimonials />
       <ContactSection />
       <Footer />
+      <Chatbot />
     </div>
   );
 }
