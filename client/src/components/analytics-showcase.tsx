@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import dashboardMain from "@assets/Page 1_1753947836204.jpg";
 import tripDetails from "@assets/Page 2_1753947836203.jpg"; 
-import vehicleDetails from "@assets/Page 3_1753947836203.jpg";
-import driverView from "@assets/Page 4_1754029511260.jpg";
+import vehicleDetails from "@assets/Page 3_1754032093043.jpg";
+import driverView from "@assets/Page 4_1754032093046.jpg";
 
 export default function AnalyticsShowcase() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
@@ -22,13 +22,13 @@ export default function AnalyticsShowcase() {
     },
     {
       src: vehicleDetails,
-      title: "Vehicle Fleet Monitoring",
-      description: "Real-time vehicle tracking, maintenance scheduling, and fleet optimization tools"
+      title: "Vehicle Details",
+      description: "Access comprehensive data about your vehicles with real-time tracking and status monitoring"
     },
     {
       src: driverView,
-      title: "Driver Performance Analytics",
-      description: "Individual driver insights, trip scoring, and performance optimization metrics"
+      title: "Driver View",
+      description: "Individual driver view with detailed performance metrics, trip history, and scoring system"
     }
   ];
 
