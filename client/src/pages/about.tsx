@@ -91,7 +91,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card data-testid="card-team-member-1">
               <CardContent className="p-8 text-center">
                 <img 
@@ -115,19 +115,6 @@ export default function About() {
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Priya Patel</h3>
                 <p className="text-slate-600 dark:text-slate-300 mb-2">CTO</p>
                 <p className="text-sm text-slate-500 dark:text-slate-400">AI/ML expert, former Google</p>
-              </CardContent>
-            </Card>
-
-            <Card data-testid="card-team-member-3">
-              <CardContent className="p-8 text-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
-                  alt="Head of Sustainability"
-                  className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
-                />
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Arjun Kumar</h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-2">Head of Sustainability</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Carbon markets specialist</p>
               </CardContent>
             </Card>
           </div>
