@@ -170,35 +170,7 @@ export default function RoqitArchitecture() {
           ))}
         </div>
 
-        {/* Direction Arrow */}
-        <div className="absolute -right-6 flex items-center">
-          <ArrowRight 
-            className={`w-4 h-4 transition-all duration-300 ${
-              isActive 
-                ? `text-${currentFlow.color}-500 scale-110` 
-                : 'text-gray-400 scale-100'
-            }`}
-            style={{
-              filter: isActive ? 'drop-shadow(0 0 3px currentColor)' : 'none'
-            }}
-          />
-          
-          {/* Blinking indicator dots after arrow */}
-          {isActive && (
-            <div className="ml-1 flex items-center space-x-1">
-              {[0, 1, 2].map((dot) => (
-                <div
-                  key={dot}
-                  className={`w-1 h-1 rounded-full bg-${currentFlow.color}-400 transition-opacity duration-150`}
-                  style={{
-                    opacity: (blinkState + dot) % 3 === 0 ? 1 : 0.3,
-                    animationDelay: `${dot * 100}ms`
-                  }}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+
 
         {/* Data Type Indicator */}
         {isActive && (
