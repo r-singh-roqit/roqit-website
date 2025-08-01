@@ -43,13 +43,19 @@ export default function Chatbot() {
       });
     },
     onSuccess: (response: any) => {
+      console.log("Chatbot response received:", response);
       const assistantMessage: ChatMessage = {
         id: Date.now().toString(),
         role: "assistant",
         content: response.message,
         timestamp: new Date().toISOString()
       };
-      setMessages(prev => [...prev, assistantMessage]);
+      console.log("Adding assistant message:", assistantMessage);
+      setMessages(prev => {
+        const newMessages = [...prev, assistantMessage];
+        console.log("Updated messages:", newMessages);
+        return newMessages;
+      });
       
       if (response.showContactForm) {
         setShowContactForm(true);
@@ -95,7 +101,12 @@ export default function Chatbot() {
       timestamp: new Date().toISOString()
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    console.log("Sending user message:", userMessage);
+    setMessages(prev => {
+      const newMessages = [...prev, userMessage];
+      console.log("Messages after adding user message:", newMessages);
+      return newMessages;
+    });
     chatMutation.mutate(inputValue.trim());
     setInputValue("");
   };
