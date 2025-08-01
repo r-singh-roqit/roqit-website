@@ -26,11 +26,11 @@ export default function RoqitArchitecture() {
       subtitle: "OBD • GPS • Sensors",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <circle cx="9" cy="9" r="2" fill="currentColor"/>
-          <circle cx="15" cy="15" r="2" fill="currentColor"/>
-          <circle cx="15" cy="9" r="1" fill="currentColor"/>
-          <circle cx="9" cy="15" r="1" fill="currentColor"/>
+          <rect x="6" y="6" width="12" height="12" rx="1" stroke="currentColor" strokeWidth="2.5" fill="none"/>
+          <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="10" r="0.8" fill="currentColor"/>
+          <circle cx="10" cy="14" r="0.8" fill="currentColor"/>
         </svg>
       ),
       description: "IoT devices collect real-time vehicle data",
@@ -49,10 +49,9 @@ export default function RoqitArchitecture() {
       subtitle: "Real-time Data Capture",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 17h2l.5-2h13l.5 2h2v-5l-2-7H5l-2 7v5z" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <circle cx="7.5" cy="17.5" r="1.5" fill="currentColor"/>
-          <circle cx="16.5" cy="17.5" r="1.5" fill="currentColor"/>
-          <path d="M5 10h14" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M4 15h3l1-2h8l1 2h3v-3l-1.5-5H5.5L4 12v3z" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.2"/>
+          <circle cx="7" cy="17" r="1.5" fill="currentColor"/>
+          <circle cx="17" cy="17" r="1.5" fill="currentColor"/>
         </svg>
       ),
       description: "Vehicles transmit live operational data",
@@ -71,10 +70,10 @@ export default function RoqitArchitecture() {
       subtitle: "AI Processing Engine", 
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <circle cx="12" cy="12" r="2" fill="currentColor"/>
-          <circle cx="8" cy="14" r="1" fill="currentColor"/>
-          <circle cx="16" cy="14" r="1" fill="currentColor"/>
+          <path d="M17 9h-1A7 7 0 1 0 8 18h9a4 4 0 0 0 0-8z" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.2"/>
+          <circle cx="11" cy="12" r="1.2" fill="currentColor"/>
+          <circle cx="8" cy="14" r="0.8" fill="currentColor"/>
+          <circle cx="14" cy="14" r="0.8" fill="currentColor"/>
         </svg>
       ),
       description: "Cloud infrastructure processes and analyzes data",
@@ -93,9 +92,9 @@ export default function RoqitArchitecture() {
       subtitle: "Fleet Manager Dashboard",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <rect x="7" y="6" width="10" height="8" rx="1" fill="currentColor" opacity="0.3"/>
-          <circle cx="12" cy="18" r="1" fill="currentColor"/>
+          <rect x="6" y="3" width="12" height="18" rx="2" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.1"/>
+          <rect x="8" y="6" width="8" height="6" rx="0.5" fill="currentColor" fillOpacity="0.4"/>
+          <circle cx="12" cy="16" r="1" fill="currentColor"/>
         </svg>
       ),
       description: "Intuitive interfaces for fleet management",
