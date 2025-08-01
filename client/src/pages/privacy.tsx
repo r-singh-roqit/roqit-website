@@ -119,7 +119,7 @@ export default function Privacy() {
 
                   <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-600">
                     <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">Your Rights</h3>
-                    <p className="leading-relaxed">You may request access, correction, or deletion of your data by emailing us at <a href="mailto:privacy@roqit.com" className="text-primary hover:underline">privacy@roqit.com</a>.</p>
+                    <p className="leading-relaxed">You may request access, correction, or deletion of your data by emailing us at <a href="mailto:info@roqit.com" className="text-primary hover:underline">info@roqit.com</a>.</p>
                   </div>
                 </div>
               </section>
@@ -152,7 +152,7 @@ export default function Privacy() {
                     <p className="font-semibold text-lg">ROQIT Greenfleet Digital Solutions Private Limited</p>
                     <p className="leading-relaxed">T-Hub, Plot-1C, Raidurgam, Knowledge City</p>
                     <p className="leading-relaxed">Hyderabad – 500081, Telangana, India</p>
-                    <p className="mt-4 text-lg">Email: <a href="mailto:privacy@roqit.com" className="text-primary hover:underline font-medium">privacy@roqit.com</a></p>
+                    <p className="mt-4 text-lg">Email: <a href="mailto:info@roqit.com" className="text-primary hover:underline font-medium">info@roqit.com</a></p>
                   </div>
                 </div>
               </section>
