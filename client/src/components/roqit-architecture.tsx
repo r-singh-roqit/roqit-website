@@ -105,25 +105,78 @@ export default function RoqitArchitecture() {
     return () => clearInterval(interval);
   }, []);
 
-  const DataFlow = ({ isActive }: { isActive: boolean }) => (
-    <div className={`flex items-center justify-center ${isActive ? 'opacity-100' : 'opacity-30'} transition-opacity duration-500`}>
-      <div className="flex items-center space-x-1">
-        {[1, 2, 3].map((dot) => (
-          <div
-            key={dot}
-            className={`w-2 h-2 rounded-full bg-blue-500 ${
-              isActive ? 'animate-pulse' : ''
-            }`}
-            style={{
-              animationDelay: `${dot * 0.2}s`,
-              animationDuration: '1s'
-            }}
+  const DataFlow = ({ isActive, stepIndex }: { isActive: boolean; stepIndex: number }) => {
+    const flowTypes = [
+      { color: 'bg-purple-500', label: 'Sensor Data' },
+      { color: 'bg-blue-500', label: 'Vehicle Telemetry' },
+      { color: 'bg-green-500', label: 'AI Processing' },
+      { color: 'bg-orange-500', label: 'Dashboard Updates' }
+    ];
+    
+    const currentFlow = flowTypes[stepIndex] || flowTypes[0];
+    
+    return (
+      <div className={`flex items-center justify-center ${isActive ? 'opacity-100' : 'opacity-40'} transition-all duration-700`}>
+        {/* Flowing Data Packets */}
+        <div className="relative flex items-center">
+          {/* Background Track */}
+          <div className="w-16 h-1 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+            {isActive && (
+              <div 
+                className="h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse"
+                style={{
+                  animation: 'flowTrack 2s ease-in-out infinite'
+                }}
+              />
+            )}
+          </div>
+          
+          {/* Data Packets */}
+          <div className="absolute inset-0 flex items-center justify-start">
+            {[1, 2, 3].map((packet, index) => (
+              <div
+                key={packet}
+                className={`w-3 h-3 rounded-full ${currentFlow.color} shadow-lg ${
+                  isActive ? 'animate-bounce' : ''
+                }`}
+                style={{
+                  animationDelay: `${index * 0.3}s`,
+                  animationDuration: '1.5s',
+                  transform: isActive ? `translateX(${index * 20 + Math.sin(Date.now() / 1000 + index) * 10}px)` : 'translateX(0)',
+                  transition: 'transform 0.5s ease-in-out'
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        
+        {/* Enhanced Arrow */}
+        <div className="ml-3 flex items-center space-x-1">
+          <ArrowRight 
+            className={`w-5 h-5 text-blue-500 transition-all duration-500 ${
+              isActive ? 'animate-pulse scale-110' : 'scale-100'
+            }`} 
           />
-        ))}
+          {isActive && (
+            <div className="flex space-x-1">
+              <div className="w-1 h-1 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '0s' }} />
+              <div className="w-1 h-1 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '0.2s' }} />
+              <div className="w-1 h-1 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '0.4s' }} />
+            </div>
+          )}
+        </div>
+        
+        {/* Data Type Label */}
+        {isActive && (
+          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white dark:bg-slate-700 px-2 py-1 rounded-full shadow-lg border border-gray-200 dark:border-gray-600">
+            <span className="text-xs font-medium text-gray-600 dark:text-gray-300 whitespace-nowrap">
+              {currentFlow.label}
+            </span>
+          </div>
+        )}
       </div>
-      <ArrowRight className={`w-4 h-4 text-blue-500 ml-2 ${isActive ? 'animate-bounce' : ''}`} />
-    </div>
-  );
+    );
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
@@ -146,15 +199,23 @@ export default function RoqitArchitecture() {
             <div className="flex items-center justify-between">
               {flowSteps.map((step, index) => (
                 <div key={step.id} className="flex-1 flex flex-col items-center">
-                  {/* Component Circle */}
+                  {/* Enhanced Component Circle */}
                   <div
-                    className={`w-24 h-24 rounded-full bg-gradient-to-br ${step.color} shadow-xl flex items-center justify-center text-white cursor-pointer transition-all duration-500 transform hover:scale-110 ${
+                    className={`flow-component w-24 h-24 rounded-full bg-gradient-to-br ${step.color} shadow-xl flex items-center justify-center text-white cursor-pointer transition-all duration-500 transform hover:scale-110 ${
                       activeComponent === index ? 'ring-4 ring-blue-200 dark:ring-blue-600 scale-110' : ''
+                    } ${
+                      Math.floor(animationStep / 2) === index ? 'animate-pulse ring-2 ring-white/50' : ''
                     }`}
                     onClick={() => setActiveComponent(index)}
                     data-testid={`flow-component-${index}`}
                   >
-                    {step.icon}
+                    <div className="relative">
+                      {step.icon}
+                      {/* Active Data Indicator */}
+                      {Math.floor(animationStep / 2) === index && (
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping" />
+                      )}
+                    </div>
                   </div>
                   
                   {/* Labels */}
@@ -167,10 +228,13 @@ export default function RoqitArchitecture() {
                     </p>
                   </div>
 
-                  {/* Animated Arrow (except for last item) */}
+                  {/* Enhanced Animated Data Flow */}
                   {index < flowSteps.length - 1 && (
                     <div className="absolute top-12 flex items-center" style={{ left: `${(index + 1) * 20 - 10}%` }}>
-                      <DataFlow isActive={Math.floor(animationStep / 2) === index} />
+                      <DataFlow 
+                        isActive={Math.floor(animationStep / 2) === index} 
+                        stepIndex={index}
+                      />
                     </div>
                   )}
                 </div>
@@ -345,6 +409,46 @@ export default function RoqitArchitecture() {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+        
+        @keyframes flowTrack {
+          0% { transform: translateX(-100%); }
+          50% { transform: translateX(0%); }
+          100% { transform: translateX(100%); }
+        }
+        
+        @keyframes dataPacketFlow {
+          0% { transform: translateX(0px) scale(1); opacity: 0.8; }
+          50% { transform: translateX(30px) scale(1.2); opacity: 1; }
+          100% { transform: translateX(60px) scale(1); opacity: 0.8; }
+        }
+        
+        .flow-component:hover {
+          transform: scale(1.05);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .data-flow-enhanced {
+          position: relative;
+          overflow: visible;
+        }
+        
+        .data-flow-enhanced::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+          transform: translateY(-50%);
+          opacity: 0;
+          animation: flowGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes flowGlow {
+          0%, 100% { opacity: 0; transform: translateY(-50%) translateX(-100%); }
+          50% { opacity: 1; transform: translateY(-50%) translateX(0%); }
         }
       `}</style>
     </section>
