@@ -45,7 +45,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href="/about" data-testid="link-footer-about"><span className="text-gray-300 hover:text-primary transition-colors">About Us</span></Link></li>
               <li><Link href="/contact" data-testid="link-footer-contact"><span className="text-gray-300 hover:text-primary transition-colors">Contact</span></Link></li>
-              <li><a href="#" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-footer-privacy">Privacy Policy</a></li>
+              <li><a href="https://main-truly-688960.framer.app/privacy_policy" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-footer-privacy">Privacy Policy</a></li>
               <li><a href="#" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-footer-terms">Terms of Service</a></li>
             </ul>
           </div>
