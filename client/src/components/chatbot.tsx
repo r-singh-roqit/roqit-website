@@ -47,7 +47,7 @@ export default function Chatbot() {
         id: Date.now().toString(),
         role: "assistant",
         content: response.message,
-        timestamp: new Date()
+        timestamp: new Date().toISOString()
       };
       setMessages(prev => [...prev, assistantMessage]);
       
@@ -92,7 +92,7 @@ export default function Chatbot() {
       id: Date.now().toString(),
       role: "user",
       content: inputValue.trim(),
-      timestamp: new Date()
+      timestamp: new Date().toISOString()
     };
 
     setMessages(prev => [...prev, userMessage]);
@@ -105,7 +105,7 @@ export default function Chatbot() {
       id: Date.now().toString(),
       role: "user",
       content: question,
-      timestamp: new Date()
+      timestamp: new Date().toISOString()
     };
 
     setMessages(prev => [...prev, userMessage]);

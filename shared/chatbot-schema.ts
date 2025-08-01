@@ -4,12 +4,12 @@ export const chatMessageSchema = z.object({
   id: z.string(),
   role: z.enum(["user", "assistant"]),
   content: z.string(),
-  timestamp: z.date().default(() => new Date()),
+  timestamp: z.string().optional(),
 });
 
 export const chatbotQuerySchema = z.object({
   message: z.string().min(1, "Message cannot be empty"),
-  conversationHistory: z.array(chatMessageSchema).default([]),
+  conversationHistory: z.array(chatMessageSchema).optional().default([]),
 });
 
 export const contactFormSchema = z.object({

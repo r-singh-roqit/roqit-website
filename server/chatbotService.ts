@@ -99,8 +99,54 @@ export async function getChatbotResponse(
     return response.choices[0].message.content || "I apologize, but I'm having trouble responding right now. Please try again or contact our team directly.";
   } catch (error) {
     console.error('Chatbot service error:', error);
-    return "I'm experiencing some technical difficulties. For immediate assistance, please contact our team at info@roqit.com and we'll get back to you personally.";
+    // Fallback to predefined responses when OpenAI is unavailable
+    return getFallbackResponse(userMessage);
   }
+}
+
+// Predefined responses for common questions when OpenAI is unavailable
+const FALLBACK_RESPONSES: Record<string, string> = {
+  "what is roqit": "ROQIT is an AI-powered fleet management and asset intelligence platform that helps businesses optimize their operations while achieving sustainability goals. We provide real-time visibility into fleet operations, driver behavior, and asset performance, typically delivering 30-40% cost reductions.",
+  
+  "roqit help reduce costs": "ROQIT helps reduce fleet costs through: 1) AI-powered route optimization that cuts fuel consumption by 15-25%, 2) Predictive maintenance that prevents costly breakdowns, 3) Driver behavior monitoring that reduces accidents and insurance costs, 4) Real-time analytics that identify inefficiencies, and 5) Automated reporting that saves administrative time.",
+  
+  "sustainability features": "ROQIT offers comprehensive sustainability features including: Real-time CO2 emissions tracking across your entire fleet, Carbon credit management to generate and trade credits from sustainability initiatives, ESG reporting for stakeholders, and AI-powered optimization to reduce environmental impact while maintaining operational efficiency.",
+  
+  "ai analytics work": "Our AI-powered analytics use machine learning to analyze real-time data from your fleet including GPS tracking, engine diagnostics, driver behavior, and environmental conditions. The system provides predictive maintenance alerts, route optimization recommendations, fuel efficiency insights, and performance benchmarking to help you make data-driven decisions.",
+  
+  "fleet sizes support": "ROQIT supports fleets of all sizes, from small businesses with 5-10 vehicles to large enterprises with thousands of assets. Our platform scales automatically to meet your needs, with custom pricing based on fleet size and requirements. Whether you're managing delivery vans, construction equipment, or service vehicles, ROQIT adapts to your industry.",
+  
+  "get started": "Getting started with ROQIT is simple: 1) Contact our team for a free consultation and demo, 2) We'll assess your specific fleet needs and challenges, 3) Our implementation team will set up the platform and integrate with your existing systems, 4) We provide training and ongoing support. The entire process typically takes 2-4 weeks.",
+  
+  "integrations support": "ROQIT integrates with popular fleet management tools, ERP systems, accounting software, and telematics providers. We support APIs for real-time data exchange and offer custom integration services for specialized requirements. Our platform is designed to work alongside your existing technology stack.",
+  
+  "data security": "ROQIT takes data security seriously with enterprise-grade encryption, secure cloud infrastructure, compliance with industry standards, role-based access controls, and regular security audits. Your fleet data is protected with the same security measures used by Fortune 500 companies."
+};
+
+function getFallbackResponse(userMessage: string): string {
+  const normalizedMessage = userMessage.toLowerCase();
+  
+  // Define keyword patterns for better matching
+  const keywordPatterns = [
+    { keywords: ['what is roqit', 'about roqit', 'roqit platform'], response: FALLBACK_RESPONSES["what is roqit"] },
+    { keywords: ['reduce costs', 'save money', 'cost reduction', 'lower costs'], response: FALLBACK_RESPONSES["roqit help reduce costs"] },
+    { keywords: ['sustainability', 'green', 'carbon', 'emissions', 'environmental'], response: FALLBACK_RESPONSES["sustainability features"] },
+    { keywords: ['ai analytics', 'artificial intelligence', 'machine learning', 'data analytics'], response: FALLBACK_RESPONSES["ai analytics work"] },
+    { keywords: ['fleet size', 'how many vehicles', 'small fleet', 'large fleet'], response: FALLBACK_RESPONSES["fleet sizes support"] },
+    { keywords: ['get started', 'how to start', 'begin', 'implementation'], response: FALLBACK_RESPONSES["get started"] },
+    { keywords: ['integration', 'integrate', 'connect', 'api'], response: FALLBACK_RESPONSES["integrations support"] },
+    { keywords: ['security', 'data protection', 'privacy', 'secure'], response: FALLBACK_RESPONSES["data security"] }
+  ];
+  
+  // Check for keyword pattern matches
+  for (const pattern of keywordPatterns) {
+    if (pattern.keywords.some(keyword => normalizedMessage.includes(keyword))) {
+      return pattern.response;
+    }
+  }
+  
+  // Default response for unmatched questions
+  return "Thank you for your question about ROQIT! I'd be happy to help you learn more about our AI-powered fleet management platform. For detailed information about this topic, I'd recommend speaking with our team directly. Please use the contact form below and we'll get back to you personally with comprehensive answers tailored to your specific needs.";
 }
 
 export async function shouldShowContactForm(userMessage: string): Promise<boolean> {
@@ -136,6 +182,9 @@ export async function shouldShowContactForm(userMessage: string): Promise<boolea
     return response.choices[0].message.content?.trim().toLowerCase() === "true";
   } catch (error) {
     console.error('Contact form check error:', error);
-    return false;
+    // Fallback logic when OpenAI is unavailable
+    const normalizedMessage = userMessage.toLowerCase();
+    const contactTriggers = ['pricing', 'price', 'cost', 'quote', 'custom', 'integration', 'implementation', 'demo', 'trial', 'enterprise', 'business'];
+    return contactTriggers.some(trigger => normalizedMessage.includes(trigger));
   }
 }
