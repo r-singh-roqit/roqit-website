@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Linkedin, Twitter, Facebook } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import roqitLogoWhite from "@assets/ROQIT_solid_white_blue_horizontal_1753942131887.jpg";
 
 export default function Footer() {
@@ -20,12 +20,6 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/company/roqit/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-linkedin">
                 <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-facebook">
-                <Facebook size={20} />
               </a>
             </div>
           </div>
