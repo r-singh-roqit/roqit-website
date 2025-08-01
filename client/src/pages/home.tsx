@@ -24,6 +24,8 @@ export default function Home() {
       <SolutionsSection />
       <PlatformMatrix />
       <MobileFeatures />
+      <SustainabilitySection />
+      <Testimonials />
       <ContactSection />
       <Footer />
     </div>
