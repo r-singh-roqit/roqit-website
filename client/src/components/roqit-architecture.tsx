@@ -106,72 +106,113 @@ export default function RoqitArchitecture() {
   }, []);
 
   const DataFlow = ({ isActive, stepIndex }: { isActive: boolean; stepIndex: number }) => {
+    const [blinkState, setBlinkState] = useState(0);
+    
+    useEffect(() => {
+      if (isActive) {
+        const blinkInterval = setInterval(() => {
+          setBlinkState(prev => (prev + 1) % 4);
+        }, 200);
+        return () => clearInterval(blinkInterval);
+      }
+    }, [isActive]);
+
     const flowTypes = [
-      { color: 'bg-purple-500', label: 'Sensor Data' },
-      { color: 'bg-blue-500', label: 'Vehicle Telemetry' },
-      { color: 'bg-green-500', label: 'AI Processing' },
-      { color: 'bg-orange-500', label: 'Dashboard Updates' }
+      { color: 'purple', label: 'Sensor Data', icon: '📡' },
+      { color: 'blue', label: 'Vehicle Data', icon: '🚛' },
+      { color: 'green', label: 'AI Processing', icon: '🧠' },
+      { color: 'orange', label: 'Live Updates', icon: '📊' }
     ];
     
     const currentFlow = flowTypes[stepIndex] || flowTypes[0];
     
+    const getBlinkClass = (position: number) => {
+      if (!isActive) return 'opacity-20';
+      
+      // Create a wave effect across the 5 positions
+      const activePosition = blinkState;
+      const distance = Math.abs(position - activePosition);
+      
+      if (distance === 0) return 'opacity-100 scale-125';
+      if (distance === 1) return 'opacity-80 scale-110';
+      if (distance === 2) return 'opacity-60 scale-105';
+      return 'opacity-30 scale-100';
+    };
+
     return (
-      <div className={`flex items-center justify-center ${isActive ? 'opacity-100' : 'opacity-40'} transition-all duration-700`}>
-        {/* Flowing Data Packets */}
-        <div className="relative flex items-center">
-          {/* Background Track */}
-          <div className="w-16 h-1 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
-            {isActive && (
-              <div 
-                className="h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse"
-                style={{
-                  animation: 'flowTrack 2s ease-in-out infinite'
-                }}
-              />
-            )}
-          </div>
-          
-          {/* Data Packets */}
-          <div className="absolute inset-0 flex items-center justify-start">
-            {[1, 2, 3].map((packet, index) => (
-              <div
-                key={packet}
-                className={`w-3 h-3 rounded-full ${currentFlow.color} shadow-lg ${
-                  isActive ? 'animate-bounce' : ''
-                }`}
-                style={{
-                  animationDelay: `${index * 0.3}s`,
-                  animationDuration: '1.5s',
-                  transform: isActive ? `translateX(${index * 20 + Math.sin(Date.now() / 1000 + index) * 10}px)` : 'translateX(0)',
-                  transition: 'transform 0.5s ease-in-out'
-                }}
-              />
-            ))}
-          </div>
-        </div>
-        
-        {/* Enhanced Arrow */}
-        <div className="ml-3 flex items-center space-x-1">
-          <ArrowRight 
-            className={`w-5 h-5 text-blue-500 transition-all duration-500 ${
-              isActive ? 'animate-pulse scale-110' : 'scale-100'
-            }`} 
-          />
+      <div className="relative flex items-center justify-center py-4">
+        {/* Connection Line */}
+        <div className="relative w-20 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           {isActive && (
-            <div className="flex space-x-1">
-              <div className="w-1 h-1 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '0s' }} />
-              <div className="w-1 h-1 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '0.2s' }} />
-              <div className="w-1 h-1 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '0.4s' }} />
+            <div 
+              className={`absolute inset-0 h-full bg-gradient-to-r from-${currentFlow.color}-400 via-${currentFlow.color}-500 to-${currentFlow.color}-400 rounded-full transition-all duration-300`}
+              style={{
+                animation: isActive ? 'pulseGlow 1s ease-in-out infinite' : 'none'
+              }}
+            />
+          )}
+        </div>
+
+        {/* Blinking Data Points */}
+        <div className="absolute inset-0 flex items-center justify-between px-1">
+          {[0, 1, 2, 3, 4].map((position) => (
+            <div
+              key={position}
+              className={`w-2 h-2 rounded-full transition-all duration-200 ${getBlinkClass(position)}`}
+              style={{
+                backgroundColor: isActive ? 
+                  (position === blinkState ? `rgb(var(--${currentFlow.color}-500))` : `rgb(var(--${currentFlow.color}-300))`) 
+                  : 'rgb(156, 163, 175)',
+                boxShadow: isActive && position === blinkState ? 
+                  `0 0 8px rgb(var(--${currentFlow.color}-400))` : 'none'
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Direction Arrow */}
+        <div className="absolute -right-6 flex items-center">
+          <ArrowRight 
+            className={`w-4 h-4 transition-all duration-300 ${
+              isActive 
+                ? `text-${currentFlow.color}-500 scale-110` 
+                : 'text-gray-400 scale-100'
+            }`}
+            style={{
+              filter: isActive ? 'drop-shadow(0 0 3px currentColor)' : 'none'
+            }}
+          />
+          
+          {/* Blinking indicator dots after arrow */}
+          {isActive && (
+            <div className="ml-1 flex items-center space-x-1">
+              {[0, 1, 2].map((dot) => (
+                <div
+                  key={dot}
+                  className={`w-1 h-1 rounded-full bg-${currentFlow.color}-400 transition-opacity duration-150`}
+                  style={{
+                    opacity: (blinkState + dot) % 3 === 0 ? 1 : 0.3,
+                    animationDelay: `${dot * 100}ms`
+                  }}
+                />
+              ))}
             </div>
           )}
         </div>
-        
-        {/* Data Type Label */}
+
+        {/* Data Type Indicator */}
         {isActive && (
-          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white dark:bg-slate-700 px-2 py-1 rounded-full shadow-lg border border-gray-200 dark:border-gray-600">
-            <span className="text-xs font-medium text-gray-600 dark:text-gray-300 whitespace-nowrap">
-              {currentFlow.label}
-            </span>
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+            <div className={`text-sm transition-all duration-300 ${
+              isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}>
+              {currentFlow.icon}
+            </div>
+            <div className="mt-1 bg-white dark:bg-slate-800 px-2 py-1 rounded-full shadow-lg border border-gray-200 dark:border-gray-600">
+              <span className="text-xs font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                {currentFlow.label}
+              </span>
+            </div>
           </div>
         )}
       </div>
@@ -201,19 +242,31 @@ export default function RoqitArchitecture() {
                 <div key={step.id} className="flex-1 flex flex-col items-center">
                   {/* Enhanced Component Circle */}
                   <div
-                    className={`flow-component w-24 h-24 rounded-full bg-gradient-to-br ${step.color} shadow-xl flex items-center justify-center text-white cursor-pointer transition-all duration-500 transform hover:scale-110 ${
+                    className={`flow-component w-24 h-24 rounded-full bg-gradient-to-br ${step.color} shadow-xl flex items-center justify-center text-white cursor-pointer ${
                       activeComponent === index ? 'ring-4 ring-blue-200 dark:ring-blue-600 scale-110' : ''
                     } ${
-                      Math.floor(animationStep / 2) === index ? 'animate-pulse ring-2 ring-white/50' : ''
+                      Math.floor(animationStep / 2) === index ? 'active ring-2 ring-white/70' : ''
                     }`}
                     onClick={() => setActiveComponent(index)}
                     data-testid={`flow-component-${index}`}
                   >
                     <div className="relative">
                       {step.icon}
-                      {/* Active Data Indicator */}
+                      {/* Multi-level Status Indicators */}
                       {Math.floor(animationStep / 2) === index && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping" />
+                        <>
+                          {/* Primary indicator - fast blink */}
+                          <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full blink-fast" />
+                          {/* Secondary indicator - medium blink */}
+                          <div className="absolute -top-2 -right-2 w-4 h-4 border-2 border-green-300 rounded-full blink-medium" />
+                          {/* Tertiary indicator - slow blink */}
+                          <div className="absolute -top-3 -right-3 w-5 h-5 border border-green-200 rounded-full blink-slow" />
+                        </>
+                      )}
+                      
+                      {/* Processing indicator for active component */}
+                      {activeComponent === index && Math.floor(animationStep / 2) !== index && (
+                        <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-blue-400 rounded-full animate-pulse" />
                       )}
                     </div>
                   </div>
@@ -411,44 +464,84 @@ export default function RoqitArchitecture() {
           }
         }
         
-        @keyframes flowTrack {
-          0% { transform: translateX(-100%); }
-          50% { transform: translateX(0%); }
-          100% { transform: translateX(100%); }
+        @keyframes pulseGlow {
+          0%, 100% { 
+            opacity: 0.6; 
+            transform: scaleX(1);
+            filter: brightness(1);
+          }
+          50% { 
+            opacity: 1; 
+            transform: scaleX(1.05);
+            filter: brightness(1.2);
+          }
         }
         
-        @keyframes dataPacketFlow {
-          0% { transform: translateX(0px) scale(1); opacity: 0.8; }
-          50% { transform: translateX(30px) scale(1.2); opacity: 1; }
-          100% { transform: translateX(60px) scale(1); opacity: 0.8; }
+        @keyframes componentPulse {
+          0%, 100% { 
+            transform: scale(1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          }
+          50% { 
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+          }
+        }
+        
+        .flow-component {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .flow-component:hover {
           transform: scale(1.05);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         
-        .data-flow-enhanced {
-          position: relative;
-          overflow: visible;
+        .flow-component.active {
+          animation: componentPulse 2s ease-in-out infinite;
         }
         
-        .data-flow-enhanced::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, #3b82f6, transparent);
-          transform: translateY(-50%);
-          opacity: 0;
-          animation: flowGlow 2s ease-in-out infinite;
+        .blink-fast {
+          animation: fastBlink 0.5s ease-in-out infinite;
         }
         
-        @keyframes flowGlow {
-          0%, 100% { opacity: 0; transform: translateY(-50%) translateX(-100%); }
-          50% { opacity: 1; transform: translateY(-50%) translateX(0%); }
+        .blink-medium {
+          animation: mediumBlink 1s ease-in-out infinite;
+        }
+        
+        .blink-slow {
+          animation: slowBlink 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes fastBlink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+        
+        @keyframes mediumBlink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+        
+        @keyframes slowBlink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+        
+        /* Custom CSS variables for colors */
+        :root {
+          --purple-300: 196, 181, 253;
+          --purple-400: 167, 139, 250;
+          --purple-500: 139, 92, 246;
+          --blue-300: 147, 197, 253;
+          --blue-400: 96, 165, 250;
+          --blue-500: 59, 130, 246;
+          --green-300: 134, 239, 172;
+          --green-400: 74, 222, 128;
+          --green-500: 34, 197, 94;
+          --orange-300: 253, 186, 116;
+          --orange-400: 251, 146, 60;
+          --orange-500: 249, 115, 22;
         }
       `}</style>
     </section>
