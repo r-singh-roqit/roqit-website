@@ -24,7 +24,15 @@ export default function RoqitArchitecture() {
       id: 0,
       title: "Smart Device",
       subtitle: "OBD • GPS • Sensors",
-      icon: <Cpu className="w-8 h-8" />,
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <circle cx="9" cy="9" r="2" fill="currentColor"/>
+          <circle cx="15" cy="15" r="2" fill="currentColor"/>
+          <circle cx="15" cy="9" r="1" fill="currentColor"/>
+          <circle cx="9" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      ),
       description: "IoT devices collect real-time vehicle data",
       details: [
         "OBD-II diagnostics",
@@ -39,7 +47,14 @@ export default function RoqitArchitecture() {
       id: 1,
       title: "Connected Vehicle", 
       subtitle: "Real-time Data Capture",
-      icon: <Truck className="w-8 h-8" />,
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17h2l.5-2h13l.5 2h2v-5l-2-7H5l-2 7v5z" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <circle cx="7.5" cy="17.5" r="1.5" fill="currentColor"/>
+          <circle cx="16.5" cy="17.5" r="1.5" fill="currentColor"/>
+          <path d="M5 10h14" stroke="currentColor" strokeWidth="1.5"/>
+        </svg>
+      ),
       description: "Vehicles transmit live operational data",
       details: [
         "Engine diagnostics",
@@ -54,7 +69,14 @@ export default function RoqitArchitecture() {
       id: 2,
       title: "ROQIT Cloud Platform",
       subtitle: "AI Processing Engine", 
-      icon: <Cloud className="w-8 h-8" />,
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+          <circle cx="8" cy="14" r="1" fill="currentColor"/>
+          <circle cx="16" cy="14" r="1" fill="currentColor"/>
+        </svg>
+      ),
       description: "Cloud infrastructure processes and analyzes data",
       details: [
         "AI/ML data processing",
@@ -69,7 +91,13 @@ export default function RoqitArchitecture() {
       id: 3,
       title: "Web & Mobile Apps",
       subtitle: "Fleet Manager Dashboard",
-      icon: <Smartphone className="w-8 h-8" />,
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <rect x="7" y="6" width="10" height="8" rx="1" fill="currentColor" opacity="0.3"/>
+          <circle cx="12" cy="18" r="1" fill="currentColor"/>
+        </svg>
+      ),
       description: "Intuitive interfaces for fleet management",
       details: [
         "Real-time fleet monitoring",
@@ -84,7 +112,14 @@ export default function RoqitArchitecture() {
       id: 4,
       title: "Insights + Actions",
       subtitle: "Smart Recommendations",
-      icon: <BarChart3 className="w-8 h-8" />,
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <rect x="7" y="8" width="2" height="9" fill="currentColor"/>
+          <rect x="11" y="5" width="2" height="12" fill="currentColor"/>
+          <rect x="15" y="10" width="2" height="7" fill="currentColor"/>
+        </svg>
+      ),
       description: "Actionable insights drive business decisions",
       details: [
         "Predictive maintenance alerts",
