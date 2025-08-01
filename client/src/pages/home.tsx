@@ -3,6 +3,7 @@ import HeroSection from "@/components/hero-section";
 import BenefitsSection from "@/components/benefits-section";
 import StatsSection from "@/components/stats-section";
 import FleetIntelligence from "@/components/fleet-intelligence";
+import RoqitArchitecture from "@/components/roqit-architecture";
 import AnalyticsShowcase from "@/components/analytics-showcase";
 import SolutionsSection from "@/components/solutions-section";
 import PlatformMatrix from "@/components/platform-matrix";
@@ -20,6 +21,7 @@ export default function Home() {
       <BenefitsSection />
       <StatsSection />
       <FleetIntelligence />
+      <RoqitArchitecture />
       <AnalyticsShowcase />
       <SolutionsSection />
       <PlatformMatrix />
