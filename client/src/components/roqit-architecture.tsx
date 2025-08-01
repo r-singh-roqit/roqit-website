@@ -25,13 +25,19 @@ export default function RoqitArchitecture() {
       title: "Smart Device",
       subtitle: "OBD • GPS • Sensors",
       icon: (
-        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="6" y="6" width="12" height="12" rx="1" fill="currentColor" fillOpacity="0.2"/>
-          <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
-          <circle cx="15" cy="15" r="1.5" fill="currentColor"/>
-          <circle cx="15" cy="9" r="1" fill="currentColor"/>
-          <circle cx="9" cy="15" r="1" fill="currentColor"/>
-        </svg>
+        <div className="w-8 h-8 flex items-center justify-center">
+          <div className="relative">
+            <div className="w-6 h-6 bg-white/90 rounded-sm flex items-center justify-center">
+              <div className="grid grid-cols-2 gap-1">
+                <div className="w-1 h-1 bg-purple-600 rounded-full"></div>
+                <div className="w-1 h-1 bg-purple-600 rounded-full"></div>
+                <div className="w-1 h-1 bg-purple-600 rounded-full"></div>
+                <div className="w-1 h-1 bg-purple-600 rounded-full"></div>
+              </div>
+            </div>
+            <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          </div>
+        </div>
       ),
       description: "IoT devices collect real-time vehicle data",
       details: [
@@ -48,11 +54,17 @@ export default function RoqitArchitecture() {
       title: "Connected Vehicle", 
       subtitle: "Real-time Data Capture",
       icon: (
-        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 14h2l1-1h8l1 1h2v-2l-1-4H6l-1 4v2z" fill="currentColor" fillOpacity="0.3"/>
-          <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
-          <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
-        </svg>
+        <div className="w-8 h-8 flex items-center justify-center">
+          <div className="relative">
+            <div className="w-7 h-4 bg-white/90 rounded-sm flex items-center justify-between px-1">
+              <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
+              <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
+            </div>
+            <div className="absolute -bottom-1 left-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+            <div className="absolute -bottom-1 right-0 w-2 h-2 bg-gray-700 rounded-full"></div>
+            <div className="absolute -top-1 right-0 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+          </div>
+        </div>
       ),
       description: "Vehicles transmit live operational data",
       details: [
@@ -69,12 +81,17 @@ export default function RoqitArchitecture() {
       title: "ROQIT Cloud Platform",
       subtitle: "AI Processing Engine", 
       icon: (
-        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17 10h-1A6 6 0 1 0 9 18h8a3 3 0 0 0 0-6z" fill="currentColor" fillOpacity="0.3"/>
-          <circle cx="11" cy="12" r="1" fill="currentColor"/>
-          <circle cx="8" cy="14" r="0.7" fill="currentColor"/>
-          <circle cx="14" cy="14" r="0.7" fill="currentColor"/>
-        </svg>
+        <div className="w-8 h-8 flex items-center justify-center">
+          <div className="relative">
+            <div className="w-6 h-4 bg-white/90 rounded-full flex items-center justify-center">
+              <div className="flex space-x-1">
+                <div className="w-1 h-1 bg-green-600 rounded-full animate-pulse"></div>
+                <div className="w-1 h-1 bg-green-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                <div className="w-1 h-1 bg-green-600 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+              </div>
+            </div>
+          </div>
+        </div>
       ),
       description: "Cloud infrastructure processes and analyzes data",
       details: [
@@ -91,11 +108,15 @@ export default function RoqitArchitecture() {
       title: "Web & Mobile Apps",
       subtitle: "Fleet Manager Dashboard",
       icon: (
-        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="7" y="4" width="10" height="16" rx="1.5" fill="currentColor" fillOpacity="0.2"/>
-          <rect x="8.5" y="6" width="7" height="5" rx="0.5" fill="currentColor" fillOpacity="0.5"/>
-          <circle cx="12" cy="15" r="1" fill="currentColor"/>
-        </svg>
+        <div className="w-8 h-8 flex items-center justify-center">
+          <div className="relative">
+            <div className="w-5 h-7 bg-white/90 rounded-sm flex flex-col items-center justify-center space-y-1">
+              <div className="w-3 h-2 bg-orange-600 rounded-sm opacity-70"></div>
+              <div className="w-1 h-1 bg-orange-600 rounded-full"></div>
+            </div>
+            <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-orange-400 rounded-full animate-ping"></div>
+          </div>
+        </div>
       ),
       description: "Intuitive interfaces for fleet management",
       details: [
@@ -112,12 +133,15 @@ export default function RoqitArchitecture() {
       title: "Insights + Actions",
       subtitle: "Smart Recommendations",
       icon: (
-        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <rect x="7" y="8" width="2" height="9" fill="currentColor"/>
-          <rect x="11" y="5" width="2" height="12" fill="currentColor"/>
-          <rect x="15" y="10" width="2" height="7" fill="currentColor"/>
-        </svg>
+        <div className="w-8 h-8 flex items-center justify-center">
+          <div className="relative">
+            <div className="w-6 h-5 bg-white/90 rounded-sm flex items-end justify-center space-x-1 p-1">
+              <div className="w-1 h-2 bg-red-600 rounded-sm"></div>
+              <div className="w-1 h-3 bg-red-600 rounded-sm"></div>
+              <div className="w-1 h-4 bg-red-600 rounded-sm"></div>
+            </div>
+          </div>
+        </div>
       ),
       description: "Actionable insights drive business decisions",
       details: [
