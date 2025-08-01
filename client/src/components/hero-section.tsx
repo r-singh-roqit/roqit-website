@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useState } from "react";
+import VideoModal from "./video-modal";
 import dashboardBackground from "@assets/Screenshot at Jul 31 11-27-30_1753941475513.png";
 import roqitLogoSmall from "@assets/ROQIT_solid_black_blue_horizontal_1753942131887.jpg";
 
 export default function HeroSection() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   return (
     <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-20 lg:py-32 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +35,8 @@ export default function HeroSection() {
               </Link>
               <Button 
                 variant="outline" 
-                className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl font-semibold hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300"
+                onClick={() => setIsVideoModalOpen(true)}
+                className="border-2 border-slate-300 text-slate-700 dark:border-slate-600 dark:text-slate-300 px-8 py-4 rounded-xl font-semibold hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300"
                 data-testid="button-watch-demo"
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -141,6 +146,12 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      
+      {/* Video Modal */}
+      <VideoModal 
+        isOpen={isVideoModalOpen} 
+        onClose={() => setIsVideoModalOpen(false)} 
+      />
     </section>
   );
 }
