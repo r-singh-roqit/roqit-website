@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', 'sans-serif'],
-        'heading': ['Sora', 'sans-serif'],
+        'sans': ['Switzer', 'sans-serif'],
+        'heading': ['Switzer', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
