@@ -98,13 +98,13 @@ export default function ContactSection() {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4" data-testid="contact-info-office">
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+              <div className="flex items-start space-x-4" data-testid="contact-info-office">
+                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <MapPin className="text-accent" size={20} />
                 </div>
                 <div>
                   <div className="font-semibold text-dark">Office</div>
-                  <div className="text-gray-600">6th floor, Thub, Raidurgam, Knowledge City Rd, panmaktha, Hyderabad, Serilingampalle (M), Telangana 500081</div>
+                  <div className="text-gray-600 leading-relaxed">6th floor, Thub, Raidurgam, Knowledge City Rd, panmaktha, Hyderabad, Serilingampalle (M), Telangana 500081</div>
                 </div>
               </div>
             </div>
