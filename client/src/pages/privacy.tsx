@@ -38,9 +38,9 @@ export default function Privacy() {
               <section>
                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">1. Website Usage</h2>
                 <ul className="space-y-3 text-slate-600 dark:text-slate-300">
-                  <li>• The content on this Site is for general information only. It is subject to change without notice.</li>
-                  <li>• You may not use this Site for any unlawful purpose or to violate any laws in your jurisdiction.</li>
-                  <li>• Unauthorized use of this Site may give rise to a claim for damages and/or be a criminal offense.</li>
+                  <li>The content on this Site is for general information only. It is subject to change without notice.</li>
+                  <li>You may not use this Site for any unlawful purpose or to violate any laws in your jurisdiction.</li>
+                  <li>Unauthorized use of this Site may give rise to a claim for damages and/or be a criminal offense.</li>
                 </ul>
               </section>
 
@@ -57,9 +57,9 @@ export default function Privacy() {
                 <div className="space-y-4 text-slate-600 dark:text-slate-300">
                   <p>If you submit any personal or business information through forms or email on our Site, you agree that:</p>
                   <ul className="space-y-2 ml-4">
-                    <li>• The information is accurate and not misleading</li>
-                    <li>• You have the right to share it</li>
-                    <li>• We may use this information as described in our Privacy Policy</li>
+                    <li>The information is accurate and not misleading</li>
+                    <li>You have the right to share it</li>
+                    <li>We may use this information as described in our Privacy Policy</li>
                   </ul>
                 </div>
               </section>
@@ -81,8 +81,8 @@ export default function Privacy() {
                     <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">What We Collect</h3>
                     <p className="mb-3">We may collect the following types of information:</p>
                     <ul className="space-y-2 ml-4">
-                      <li>• <strong>Personal Data:</strong> Name, email, phone number, company name, etc., when voluntarily submitted by users.</li>
-                      <li>• <strong>Usage Data:</strong> IP address, browser type, pages visited, and cookies used to improve the website experience.</li>
+                      <li><strong>Personal Data:</strong> Name, email, phone number, company name, etc., when voluntarily submitted by users.</li>
+                      <li><strong>Usage Data:</strong> IP address, browser type, pages visited, and cookies used to improve the website experience.</li>
                     </ul>
                   </div>
 
@@ -90,10 +90,10 @@ export default function Privacy() {
                     <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">How We Use Your Data</h3>
                     <p className="mb-3">We use collected data to:</p>
                     <ul className="space-y-2 ml-4">
-                      <li>• Respond to inquiries or support requests</li>
-                      <li>• Improve our website and service</li>
-                      <li>• Send promotional emails (only if you opt-in)</li>
-                      <li>• Ensure security and prevent fraud</li>
+                      <li>Respond to inquiries or support requests</li>
+                      <li>Improve our website and service</li>
+                      <li>Send promotional emails (only if you opt-in)</li>
+                      <li>Ensure security and prevent fraud</li>
                     </ul>
                   </div>
 
@@ -101,9 +101,9 @@ export default function Privacy() {
                     <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Data Sharing</h3>
                     <p className="mb-3">We do not sell your personal data. We may share your information with:</p>
                     <ul className="space-y-2 ml-4">
-                      <li>• Service providers supporting website operations</li>
-                      <li>• Authorities if required by law</li>
-                      <li>• Successors in case of merger or acquisition</li>
+                      <li>Service providers supporting website operations</li>
+                      <li>Authorities if required by law</li>
+                      <li>Successors in case of merger or acquisition</li>
                     </ul>
                   </div>
 
