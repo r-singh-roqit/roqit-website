@@ -18,7 +18,7 @@ export default function Footer() {
               AI-powered platform re-imagining how businesses manage and optimize assets to unlock operational efficiency and measurable ESG impact.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-linkedin">
+              <a href="https://www.linkedin.com/company/roqit/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-linkedin">
                 <Linkedin size={20} />
               </a>
               <a href="#" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-twitter">
