@@ -8,7 +8,6 @@ import AnalyticsShowcase from "@/components/analytics-showcase";
 import SolutionsSection from "@/components/solutions-section";
 import PlatformMatrix from "@/components/platform-matrix";
 import MobileFeatures from "@/components/mobile-features";
-import SustainabilitySection from "@/components/sustainability-section";
 import Testimonials from "@/components/testimonials";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
@@ -26,7 +25,6 @@ export default function Home() {
       <SolutionsSection />
       <PlatformMatrix />
       <MobileFeatures />
-      <SustainabilitySection />
       <Testimonials />
       <ContactSection />
       <Footer />
