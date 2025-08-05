@@ -1,4 +1,5 @@
 import { IndianRupee, MapPin, Rocket, Plug } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function BenefitsSection() {
   const benefits = [
@@ -36,13 +37,20 @@ export default function BenefitsSection() {
     }
   ];
 
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
+    <section 
+      ref={ref}
+      className={`py-24 lg:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 lg:mb-24">
           <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-medium bg-gradient-to-r from-primary/10 to-accent/10 text-primary ring-1 ring-inset ring-primary/20 mb-8 backdrop-blur-sm">
             ⚡ Platform Advantages
           </div>
@@ -55,13 +63,16 @@ export default function BenefitsSection() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
               <div 
                 key={index}
-                className={`${benefit.bgColor} border border-slate-200/50 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group relative overflow-hidden`}
+                className={`${benefit.bgColor} border border-slate-200/50 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group relative overflow-hidden ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
                 data-testid={`card-benefit-${index}`}
               >
                 {/* Gradient overlay on hover */}

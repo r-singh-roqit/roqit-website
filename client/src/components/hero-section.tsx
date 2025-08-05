@@ -4,14 +4,21 @@ import { useState } from "react";
 import VideoModal from "./video-modal";
 import dashboardBackground from "@assets/Screenshot at Jul 31 11-27-30_1753941475513.png";
 import roqitLogoSmall from "@assets/ROQIT_solid_black_blue_horizontal_1753942131887.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function HeroSection() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-20 lg:py-32 overflow-hidden">
+    <section 
+      ref={ref}
+      className={`relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-24 lg:py-32 overflow-hidden transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="max-w-2xl">
             <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20 mb-6">
               🚀 AI-Powered Fleet Intelligence

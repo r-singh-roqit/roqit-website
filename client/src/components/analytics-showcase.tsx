@@ -4,6 +4,7 @@ import { useState } from "react";
 import tripDetails from "@assets/Page 2_1753947836203.jpg"; 
 import vehicleDetails from "@assets/Page 3_1754032093043.jpg";
 import driverView from "@assets/Page 4_1754032093046.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function AnalyticsShowcase() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
@@ -36,15 +37,22 @@ export default function AnalyticsShowcase() {
     setCurrentScreenshot((prev) => (prev - 1 + screenshots.length) % screenshots.length);
   };
 
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 overflow-hidden">
+    <section 
+      ref={ref}
+      className={`relative py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 overflow-hidden transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       {/* Background pattern */}
       <div className="absolute inset-0 bg-grid-white/[0.05] -z-10"></div>
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-500/5 to-purple-500/5 -z-10"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 lg:mb-24">
           <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-medium bg-white/10 text-white ring-1 ring-inset ring-white/20 mb-8 backdrop-blur-sm">
             📊 Live Dashboard Views
           </div>
@@ -60,8 +68,8 @@ export default function AnalyticsShowcase() {
         </div>
 
         {/* Screenshots Showcase */}
-        <div className="mb-20">
-          <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+        <div className="mb-20 lg:mb-24">
+          <div className="relative glassmorphism rounded-3xl p-8 lg:p-12 shadow-2xl">
             {/* Current Screenshot Display */}
             <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl">
               <img 

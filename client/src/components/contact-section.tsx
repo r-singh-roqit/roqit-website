@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -60,10 +61,18 @@ export default function ContactSection() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <section 
+      id="contact" 
+      ref={ref}
+      className={`py-24 lg:py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20 lg:mb-24">
           <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20 mb-6">
             💬 Get In Touch
           </div>
@@ -79,8 +88,11 @@ export default function ContactSection() {
           </div>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="bg-white/70 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className={`bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/60 dark:border-slate-600/60 rounded-2xl p-8 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: '200ms' }}>
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
             
             <div className="space-y-6">
@@ -116,7 +128,11 @@ export default function ContactSection() {
             </div>
           </div>
           
-          <div className="bg-white/70 backdrop-blur-sm border border-slate-200/60 rounded-2xl shadow-xl p-8" data-testid="contact-form-container">
+          <div className={`bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/60 dark:border-slate-600/60 rounded-2xl shadow-xl p-8 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: '400ms' }}
+          data-testid="contact-form-container">
             <h3 className="text-2xl font-bold text-slate-900 mb-6" data-testid="text-contact-form-title">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">

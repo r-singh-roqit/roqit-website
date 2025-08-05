@@ -1,10 +1,18 @@
 import { Link } from "wouter";
 import { Linkedin } from "lucide-react";
 import roqitLogoWhite from "@assets/ROQIT_solid_white_blue_horizontal_1753942131887.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Footer() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <footer className="bg-dark text-white py-16">
+    <footer 
+      ref={ref}
+      className={`bg-dark text-white py-20 lg:py-24 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div>
