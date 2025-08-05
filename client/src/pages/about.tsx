@@ -34,8 +34,8 @@ export default function About() {
             </div>
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-                alt="Connected fleet vehicles with digital technology and sustainability focus" 
+                src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+                alt="Digital network connections and smart technology infrastructure" 
                 className="rounded-2xl shadow-xl" 
                 data-testid="img-mission"
               />
