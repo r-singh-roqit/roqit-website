@@ -24,7 +24,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-xl" data-testid="text-hero-description">
-              ROQIT is a modular, AI powered platform re-imagining how businesses manage and optimize assets - mobile or stationary - to unlock operational efficiency and measurable ESG impact.
+              ROQIT is a modular platform re-imagining how businesses manage and optimize their assets — both mobile and stationary — to unlock operational efficiency and measurable ESG impact.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
