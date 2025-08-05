@@ -15,7 +15,7 @@ export default function About() {
               About ROQIT
             </h1>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto" data-testid="text-about-description">
-              We're revolutionizing how businesses manage and optimize their physical assets through AI-powered intelligence and sustainable practices.
+              We're revolutionizing how businesses manage and optimize their physical assets through intelligent data insights and sustainable operational practices.
             </p>
           </div>
         </div>
