@@ -57,7 +57,7 @@ export default function StatsSection() {
               <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
               
               <div className="relative z-10">
-                <div className={`text-5xl lg:text-6xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-4 transition-transform duration-500 group-hover:scale-110`} data-testid={`stat-value-${index}`}>
+                <div className={`text-4xl lg:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-4 transition-transform duration-500 group-hover:scale-110`} data-testid={`stat-value-${index}`}>
                   {stat.value}
                 </div>
                 <div className="text-lg font-bold text-white mb-3 group-hover:text-blue-200 transition-colors duration-300" data-testid={`stat-label-${index}`}>
