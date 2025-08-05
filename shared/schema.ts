@@ -16,6 +16,7 @@ export const contactSubmissions = pgTable("contact_submissions", {
   company: text("company").notNull(),
   email: text("email").notNull(),
   phone: text("phone").notNull(),
+  industry: text("industry").notNull(),
   fleetSize: text("fleet_size").notNull(),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),

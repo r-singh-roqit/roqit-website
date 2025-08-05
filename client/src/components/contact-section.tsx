@@ -17,6 +17,7 @@ export default function ContactSection() {
     company: "",
     email: "",
     phone: "",
+    industry: "",
     fleetSize: "",
     message: ""
   });
@@ -36,6 +37,7 @@ export default function ContactSection() {
         company: "",
         email: "",
         phone: "",
+        industry: "",
         fleetSize: "",
         message: ""
       });
@@ -69,8 +71,12 @@ export default function ContactSection() {
             Ready to improve your business?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12" data-testid="text-contact-description">
-            Join thousands of businesses already using ROQIT to communicate with moving assets and optimize their operations.
+            Ready to transform your fleet operations? Contact our team to learn how ROQIT can help your business achieve greater efficiency and sustainability.
           </p>
+          <div className="bg-gradient-to-r from-primary/10 via-blue-50 to-primary/10 border border-primary/20 rounded-xl p-4 max-w-2xl mx-auto mb-8">
+            <p className="text-lg font-semibold text-primary mb-2">🚀 Request Your Proof of Concept</p>
+            <p className="text-slate-700">Experience ROQIT's capabilities firsthand with a personalized demonstration. <span className="font-medium text-primary">Limited spots available</span> - secure your POC session today!</p>
+          </div>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12">
@@ -157,6 +163,30 @@ export default function ContactSection() {
                   required
                   data-testid="input-company"
                 />
+              </div>
+              
+              <div>
+                <Label htmlFor="industry" className="block text-sm font-medium text-gray-700 mb-2">
+                  Industry
+                </Label>
+                <Select value={formData.industry} onValueChange={(value) => handleInputChange("industry", value)}>
+                  <SelectTrigger data-testid="select-industry">
+                    <SelectValue placeholder="Select your industry" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Logistics & Transportation">Logistics & Transportation</SelectItem>
+                    <SelectItem value="Construction">Construction</SelectItem>
+                    <SelectItem value="Mining">Mining</SelectItem>
+                    <SelectItem value="Agriculture">Agriculture</SelectItem>
+                    <SelectItem value="Oil & Gas">Oil & Gas</SelectItem>
+                    <SelectItem value="Delivery Services">Delivery Services</SelectItem>
+                    <SelectItem value="Public Transportation">Public Transportation</SelectItem>
+                    <SelectItem value="Waste Management">Waste Management</SelectItem>
+                    <SelectItem value="Emergency Services">Emergency Services</SelectItem>
+                    <SelectItem value="Manufacturing">Manufacturing</SelectItem>
+                    <SelectItem value="Other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               
               <div>
