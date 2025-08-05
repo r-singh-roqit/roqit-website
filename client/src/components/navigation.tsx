@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import roqitLogo from "@assets/ROQIT_solid_black_blue_horizontal_1753942131887.jpg";
-import roqitLogoWhite from "@assets/ROQIT_solid_white_blue_horizontal_1753942131887.jpg";
+import roqitLogo from "@/assets/roqit-logo-light.svg";
+import roqitLogoWhite from "@/assets/roqit-logo-dark.svg";
 import ThemeToggle from "./theme-toggle";
 import { useTheme } from "@/contexts/theme-context";
 

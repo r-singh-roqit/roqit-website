@@ -1,0 +1,24 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- ROQIT Logo for Light Backgrounds -->
+  <g>
+    <!-- R -->
+    <path d="M10 15 L10 45 M10 15 L25 15 Q32 15 32 22.5 Q32 30 25 30 L10 30 M25 30 L32 45" stroke="#1e293b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- O -->
+    <circle cx="47" cy="30" r="12" stroke="#1e293b" stroke-width="3" fill="none"/>
+    
+    <!-- Q -->
+    <circle cx="75" cy="30" r="12" stroke="#1e293b" stroke-width="3" fill="none"/>
+    <path d="M82 37 L87 42" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- I -->
+    <path d="M100 15 L100 45 M95 15 L105 15 M95 45 L105 45" stroke="#1e293b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- T -->
+    <path d="M115 15 L135 15 M125 15 L125 45" stroke="#1e293b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Brand mark -->
+    <circle cx="155" cy="30" r="8" fill="#0079FF"/>
+    <circle cx="155" cy="30" r="4" fill="white"/>
+  </g>
+</svg>
