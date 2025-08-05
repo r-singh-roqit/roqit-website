@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { useState } from "react";
 import VideoModal from "./video-modal";
 import dashboardBackground from "@assets/Screenshot at Jul 31 11-27-30_1753941475513.png";
-import roqitLogoSmall from "@/assets/roqit-logo-light.svg";
+import roqitLogoSmall from "@assets/ROQIT_solid_black_blue_horizontal_1753942131887.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function HeroSection() {

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Linkedin } from "lucide-react";
-import roqitLogoWhite from "@/assets/roqit-logo-dark.svg";
+import roqitLogoWhite from "@assets/ROQIT_solid_white_blue_horizontal_1753942131887.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Footer() {
