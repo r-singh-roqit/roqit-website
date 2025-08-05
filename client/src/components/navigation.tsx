@@ -36,6 +36,11 @@ export default function Navigation() {
           </div>
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
+            <Link href="/contact" data-testid="button-contact-us">
+              <Button className="bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 rounded-xl px-6 py-2 font-medium">
+                Contact Us
+              </Button>
+            </Link>
           </div>
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
@@ -55,7 +60,11 @@ export default function Navigation() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700" data-testid="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {/* Mobile menu items removed as requested */}
+            <Link href="/contact" data-testid="mobile-button-contact-us">
+              <Button className="w-full bg-gradient-to-r from-primary to-accent text-white mt-2 rounded-xl font-medium">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       )}
