@@ -51,7 +51,7 @@ export default function BenefitsSection() {
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"> ROQIT</span>
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="text-benefits-description">
-            Experience the next generation of fleet management with our AI-powered platform designed for modern operational excellence.
+            Experience the next generation of fleet management with our intelligent platform designed for modern operational excellence and sustainable growth.
           </p>
         </div>
         
