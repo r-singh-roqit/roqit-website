@@ -53,9 +53,7 @@ export default function AnalyticsShowcase() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-20 lg:mb-24">
-          <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-medium bg-white/10 text-white ring-1 ring-inset ring-white/20 mb-8 backdrop-blur-sm">
-            📊 Live Dashboard Views
-          </div>
+
           
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-tight" data-testid="text-analytics-title">
             Powerful insights at 
