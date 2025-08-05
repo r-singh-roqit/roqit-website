@@ -1,7 +1,6 @@
 import { BarChart3, TrendingUp, Gauge, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import dashboardMain from "@assets/Page 1_1753947836204.jpg";
 import tripDetails from "@assets/Page 2_1753947836203.jpg"; 
 import vehicleDetails from "@assets/Page 3_1754032093043.jpg";
 import driverView from "@assets/Page 4_1754032093046.jpg";
@@ -10,11 +9,6 @@ export default function AnalyticsShowcase() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   
   const screenshots = [
-    {
-      src: dashboardMain,
-      title: "Fleet Overview Dashboard",
-      description: "Comprehensive analytics with vehicle operations, driver metrics, and real-time insights"
-    },
     {
       src: tripDetails,
       title: "Trip Management System",
