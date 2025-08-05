@@ -71,7 +71,7 @@ export default function ContactSection() {
             Ready to improve your business?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12" data-testid="text-contact-description">
-            Ready to transform your fleet operations? Contact our team to learn how ROQIT can help your business achieve greater efficiency and sustainability.
+            Unlock smarter, greener fleet operations with ROQIT let's power up your game.
           </p>
           <div className="bg-gradient-to-r from-primary/10 via-blue-50 to-primary/10 border border-primary/20 rounded-xl p-4 max-w-2xl mx-auto mb-8">
             <p className="text-lg font-semibold text-primary mb-2">🚀 Request Your Proof of Concept</p>
