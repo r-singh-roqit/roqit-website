@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { TrendingUp, Calendar, MapPin, AlertTriangle, Truck } from "lucide-react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 interface Activity {
   id: number;
@@ -152,6 +153,18 @@ export default function FleetIntelligence() {
       drivers: { active: 620, allocated: 580 }
     }
   };
+
+  // Driver performance chart data
+  const driverPerformanceData = [
+    { time: '06:00', score: 85 },
+    { time: '08:00', score: 92 },
+    { time: '10:00', score: 88 },
+    { time: '12:00', score: 95 },
+    { time: '14:00', score: 91 },
+    { time: '16:00', score: 89 },
+    { time: '18:00', score: 94 },
+    { time: '20:00', score: 87 }
+  ];
 
   // Update metrics when hub changes
   useEffect(() => {
@@ -333,10 +346,34 @@ export default function FleetIntelligence() {
                 
                 {/* Driver Performance Chart */}
                 <div className="mt-6">
-                  <div className="flex items-center justify-center h-32 bg-slate-100 rounded-lg border border-slate-200">
-                    <div className="text-center">
-                      <div className="text-2xl mb-2">📈</div>
-                      <span className="text-sm text-slate-600">Driver Performance Chart</span>
+                  <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                    <h5 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-4">Driver Performance Chart</h5>
+                    <div className="h-32">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={driverPerformanceData}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                          <XAxis 
+                            dataKey="time" 
+                            axisLine={false}
+                            tickLine={false}
+                            tick={{ fontSize: 12, fill: '#64748b' }}
+                          />
+                          <YAxis 
+                            domain={[80, 100]}
+                            axisLine={false}
+                            tickLine={false}
+                            tick={{ fontSize: 12, fill: '#64748b' }}
+                          />
+                          <Line 
+                            type="monotone" 
+                            dataKey="score" 
+                            stroke="#0079FF" 
+                            strokeWidth={2}
+                            dot={{ fill: '#0079FF', strokeWidth: 2, r: 3 }}
+                            activeDot={{ r: 5, fill: '#0079FF' }}
+                          />
+                        </LineChart>
+                      </ResponsiveContainer>
                     </div>
                   </div>
                 </div>
