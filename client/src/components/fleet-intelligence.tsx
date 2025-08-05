@@ -196,8 +196,7 @@ export default function FleetIntelligence() {
           {/* Dashboard Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Fleet Operations Dashboard</h3>
-              <p className="text-slate-600 dark:text-slate-300">Real-time monitoring and analytics</p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Comprehensive Dashboards</h3>
             </div>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
               <select 
