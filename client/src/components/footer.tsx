@@ -41,7 +41,6 @@ export default function Footer() {
               </div>
               <div className="flex flex-col gap-2">
                 <Link href="/privacy" data-testid="link-footer-privacy"><span className="text-gray-300 hover:text-primary transition-colors">Privacy Policy</span></Link>
-                <Link href="/terms" data-testid="link-footer-terms"><span className="text-gray-300 hover:text-primary transition-colors">Terms of Service</span></Link>
               </div>
             </div>
           </div>
