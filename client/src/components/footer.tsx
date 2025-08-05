@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="bg-dark text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div>
             <img 
               src={roqitLogoWhite} 
               alt="ROQIT" 
@@ -15,7 +15,7 @@ export default function Footer() {
               data-testid="image-footer-logo"
             />
             <p className="text-gray-300 mb-6 max-w-md" data-testid="text-footer-description">
-              AI-powered platform re-imagining how businesses manage and optimize assets to unlock operational efficiency and measurable ESG impact.
+              Platform re-imagining how businesses manage and optimize assets to unlock operational efficiency and measurable ESG impact.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/company/roqit/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary transition-colors" data-testid="link-linkedin">
@@ -24,28 +24,27 @@ export default function Footer() {
             </div>
           </div>
           
-          <div>
-            <h4 className="font-semibold mb-4" data-testid="text-footer-solutions-title">Solutions</h4>
-            <ul className="space-y-2">
-              <li><Link href="/#solutions" data-testid="link-footer-fleet-management"><span className="text-gray-300 hover:text-primary transition-colors">Fleet Management</span></Link></li>
-              <li><Link href="/#solutions" data-testid="link-footer-route-optimization"><span className="text-gray-300 hover:text-primary transition-colors">Route Optimization</span></Link></li>
-              <li><Link href="/#sustainability" data-testid="link-footer-carbon-accounting"><span className="text-gray-300 hover:text-primary transition-colors">Carbon Accounting</span></Link></li>
-              <li><Link href="/#platform" data-testid="link-footer-insurance-services"><span className="text-gray-300 hover:text-primary transition-colors">Insurance Services</span></Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-4" data-testid="text-footer-company-title">Company</h4>
-            <ul className="space-y-2">
-              <li><Link href="/about" data-testid="link-footer-about"><span className="text-gray-300 hover:text-primary transition-colors">About Us</span></Link></li>
-              <li><Link href="/contact" data-testid="link-footer-contact"><span className="text-gray-300 hover:text-primary transition-colors">Contact</span></Link></li>
-              <li><Link href="/privacy" data-testid="link-footer-privacy"><span className="text-gray-300 hover:text-primary transition-colors">Privacy Policy</span></Link></li>
-            </ul>
+          <div className="md:text-right">
+            <h4 className="font-semibold mb-4" data-testid="text-footer-links-title">Quick Links</h4>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 sm:justify-end">
+              <div className="flex flex-col gap-2">
+                <Link href="/about" data-testid="link-footer-about"><span className="text-gray-300 hover:text-primary transition-colors">About Us</span></Link>
+                <Link href="#contact" data-testid="link-footer-contact"><span className="text-gray-300 hover:text-primary transition-colors">Contact</span></Link>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Link href="/privacy" data-testid="link-footer-privacy"><span className="text-gray-300 hover:text-primary transition-colors">Privacy Policy</span></Link>
+                <Link href="/terms" data-testid="link-footer-terms"><span className="text-gray-300 hover:text-primary transition-colors">Terms of Service</span></Link>
+              </div>
+            </div>
           </div>
         </div>
         
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300" data-testid="text-footer-copyright">
-          <p>&copy; 2024 ROQIT. All rights reserved. Built with sustainable technology principles.</p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6 text-sm">
+            <p>&copy; 2025 ROQIT™. All rights reserved.</p>
+            <p>ROQIT® is a registered trademark.</p>
+            <p>Built with sustainable technology principles.</p>
+          </div>
         </div>
       </div>
     </footer>
