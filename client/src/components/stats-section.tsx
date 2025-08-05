@@ -7,9 +7,9 @@ export default function StatsSection() {
       color: "from-blue-400 to-cyan-400"
     },
     {
-      value: "40%",
-      label: "Cost Reduction", 
-      description: "Average operational savings",
+      value: "30-40%",
+      label: "Operational Efficiency", 
+      description: "Average operational improvements",
       color: "from-emerald-400 to-teal-400"
     },
     {
