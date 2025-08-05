@@ -34,7 +34,7 @@ export default function About() {
             </div>
             <div>
               <img 
-                src="@assets/5898_1754383553122.jpg" 
+                src="/attached_assets/5898_1754383553122.jpg" 
                 alt="Target with arrow representing ROQIT's focused mission and goals" 
                 className="rounded-2xl shadow-xl" 
                 data-testid="img-mission"
