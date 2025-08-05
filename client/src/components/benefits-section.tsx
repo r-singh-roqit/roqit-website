@@ -14,7 +14,7 @@ export default function BenefitsSection() {
     {
       icon: MapPin,
       title: "Smart Analytics",
-      description: "AI-powered insights provide real-time visibility into fleet performance and operational metrics.",
+      description: "Intelligent data insights provide real-time visibility into fleet performance and operational metrics.",
       metric: "24/7",
       color: "from-blue-500 to-indigo-600",
       bgColor: "bg-blue-50 dark:bg-blue-900/20"

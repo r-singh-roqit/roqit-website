@@ -16,7 +16,7 @@ export default function SolutionsSection() {
     {
       icon: Wrench,
       title: "Predictive Maintenance",
-      description: "AI-powered maintenance scheduling to prevent breakdowns"
+      description: "Intelligent maintenance scheduling to prevent breakdowns"
     },
     {
       icon: Smartphone,

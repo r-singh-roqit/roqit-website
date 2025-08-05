@@ -32,7 +32,7 @@ export default function SustainabilitySection() {
               Compliance & Carbon Accounting
             </h2>
             <p className="text-xl text-gray-600 mb-8" data-testid="text-sustainability-description">
-              Measure and monetize fleet emissions with AI-powered carbon credit tracking.
+              Measure and monetize fleet emissions with intelligent carbon credit tracking and automated reporting.
             </p>
             
             <div className="space-y-6 mb-8">

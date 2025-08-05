@@ -458,7 +458,7 @@ export default function RoqitArchitecture() {
             {
               icon: <Leaf className="w-6 h-6 text-green-500" />,
               title: "Carbon Intelligence",
-              description: "Track, reduce, and offset carbon emissions with AI-powered sustainability insights and automated reporting"
+              description: "Track, reduce, and offset carbon emissions with intelligent sustainability insights and automated reporting"
             }
           ].map((benefit, index) => (
             <Card 

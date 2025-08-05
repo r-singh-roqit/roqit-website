@@ -21,7 +21,7 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="max-w-2xl">
             <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20 mb-6">
-              🚀 AI-Powered Fleet Intelligence
+              🚀 Smart Fleet Intelligence
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-tight mb-6 tracking-tight" data-testid="text-hero-title">
@@ -65,7 +65,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                AI-Powered
+                Data-Driven
               </div>
             </div>
           </div>
