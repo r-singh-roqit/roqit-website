@@ -1,6 +1,7 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
+import targetImage from "@assets/5898_1754383775010.jpg";
 
 export default function About() {
   return (
@@ -33,33 +34,12 @@ export default function About() {
               </p>
             </div>
             <div className="flex justify-center">
-              <div className="w-80 h-80 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-700 dark:to-slate-800 rounded-2xl shadow-xl flex items-center justify-center">
-                <svg 
-                  width="200" 
-                  height="200" 
-                  viewBox="0 0 200 200" 
-                  className="drop-shadow-lg"
-                  data-testid="svg-mission-target"
-                >
-                  {/* Outer ring */}
-                  <circle cx="100" cy="100" r="90" fill="#64748b" stroke="#475569" strokeWidth="4"/>
-                  {/* Middle ring */}
-                  <circle cx="100" cy="100" r="65" fill="#f8fafc" stroke="#64748b" strokeWidth="3"/>
-                  {/* Inner ring */}
-                  <circle cx="100" cy="100" r="40" fill="#64748b" stroke="#475569" strokeWidth="3"/>
-                  {/* Center */}
-                  <circle cx="100" cy="100" r="15" fill="#f8fafc"/>
-                  
-                  {/* Arrow */}
-                  <g transform="translate(140, 60) rotate(45)">
-                    <rect x="0" y="-3" width="60" height="6" fill="#10b981" rx="3"/>
-                    <polygon points="55,8 70,0 55,-8" fill="#10b981"/>
-                    <rect x="10" y="-8" width="4" height="16" fill="#10b981"/>
-                    <rect x="20" y="-8" width="4" height="16" fill="#10b981"/>
-                    <rect x="30" y="-8" width="4" height="16" fill="#10b981"/>
-                  </g>
-                </svg>
-              </div>
+              <img 
+                src={targetImage}
+                alt="Target with arrow representing ROQIT's focused mission and goals" 
+                className="rounded-2xl shadow-xl w-80 h-80 object-cover" 
+                data-testid="img-mission"
+              />
             </div>
           </div>
 
