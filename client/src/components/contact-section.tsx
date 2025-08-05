@@ -76,15 +76,15 @@ export default function ContactSection() {
           <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20 mb-6">
             💬 Get In Touch
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight" data-testid="text-contact-title">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="text-contact-title">
             Ready to improve your business?
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12" data-testid="text-contact-description">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-12" data-testid="text-contact-description">
             Unlock smarter, greener fleet operations with ROQIT let's power up your game.
           </p>
-          <div className="bg-gradient-to-r from-primary/10 via-blue-50 to-primary/10 border border-primary/20 rounded-xl p-4 max-w-2xl mx-auto mb-8">
+          <div className="bg-gradient-to-r from-primary/10 via-blue-50 dark:via-blue-900/20 to-primary/10 border border-primary/20 dark:border-primary/30 rounded-xl p-4 max-w-2xl mx-auto mb-8">
             <p className="text-lg font-semibold text-primary mb-2">🚀 Request Your Proof of Concept</p>
-            <p className="text-slate-700">Experience ROQIT's capabilities firsthand with a personalized demonstration. <span className="font-medium text-primary">Limited spots available</span> - secure your POC session today!</p>
+            <p className="text-slate-700 dark:text-slate-300">Experience ROQIT's capabilities firsthand with a personalized demonstration. <span className="font-medium text-primary">Limited spots available</span> - secure your POC session today!</p>
           </div>
         </div>
         
@@ -93,7 +93,7 @@ export default function ContactSection() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{ transitionDelay: '200ms' }}>
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Contact Information</h3>
             
             <div className="space-y-6">
               <div className="flex items-center space-x-4" data-testid="contact-info-phone">
@@ -101,8 +101,8 @@ export default function ContactSection() {
                   <Phone className="text-primary" size={20} />
                 </div>
                 <div>
-                  <div className="font-semibold text-dark">Phone</div>
-                  <div className="text-gray-600">+91 98765 43210</div>
+                  <div className="font-semibold text-slate-900 dark:text-white">Phone</div>
+                  <div className="text-slate-600 dark:text-slate-300">+91 98765 43210</div>
                 </div>
               </div>
               
@@ -111,8 +111,8 @@ export default function ContactSection() {
                   <Mail className="text-secondary" size={20} />
                 </div>
                 <div>
-                  <div className="font-semibold text-dark">Email</div>
-                  <div className="text-gray-600">info@roqit.com</div>
+                  <div className="font-semibold text-slate-900 dark:text-white">Email</div>
+                  <div className="text-slate-600 dark:text-slate-300">info@roqit.com</div>
                 </div>
               </div>
               
@@ -121,8 +121,8 @@ export default function ContactSection() {
                   <MapPin className="text-accent" size={20} />
                 </div>
                 <div>
-                  <div className="font-semibold text-dark">Office</div>
-                  <div className="text-gray-600 leading-relaxed">6th floor, Thub, Raidurgam, Knowledge City Rd, panmaktha, Hyderabad, Serilingampalle (M), Telangana 500081</div>
+                  <div className="font-semibold text-slate-900 dark:text-white">Office</div>
+                  <div className="text-slate-600 dark:text-slate-300 leading-relaxed">6th floor, Thub, Raidurgam, Knowledge City Rd, panmaktha, Hyderabad, Serilingampalle (M), Telangana 500081</div>
                 </div>
               </div>
             </div>
@@ -133,11 +133,11 @@ export default function ContactSection() {
           }`}
           style={{ transitionDelay: '400ms' }}
           data-testid="contact-form-container">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6" data-testid="text-contact-form-title">Send us a message</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6" data-testid="text-contact-form-title">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                  <Label htmlFor="firstName" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     First Name
                   </Label>
                   <Input
@@ -151,7 +151,7 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+                  <Label htmlFor="lastName" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Last Name
                   </Label>
                   <Input
@@ -167,7 +167,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <Label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="company" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Company
                 </Label>
                 <Input
@@ -182,7 +182,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <Label htmlFor="industry" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="industry" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Industry
                 </Label>
                 <Select value={formData.industry} onValueChange={(value) => handleInputChange("industry", value)}>
@@ -206,7 +206,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Email
                 </Label>
                 <Input
@@ -221,7 +221,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <Label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Phone
                 </Label>
                 <Input
@@ -236,7 +236,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <Label htmlFor="fleetSize" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="fleetSize" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Fleet Size
                 </Label>
                 <Select value={formData.fleetSize} onValueChange={(value) => handleInputChange("fleetSize", value)}>
@@ -253,7 +253,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <Label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Message
                 </Label>
                 <Textarea
