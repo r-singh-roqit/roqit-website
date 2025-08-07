@@ -208,7 +208,7 @@ export default function FleetIntelligence() {
             Real-time Fleet Intelligence
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto" data-testid="text-fleet-intelligence-description">
-            Comprehensive dashboards providing actionable insights into your fleet performance and efficiency
+            Comprehensive dashboards provide actionable insights into your fleet performance and efficiency
           </p>
         </div>
 
