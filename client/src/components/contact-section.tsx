@@ -74,14 +74,14 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20 lg:mb-24">
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="text-contact-title">
-            Ready to improve your business?
+            Get Early Access to ROQIT
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-12" data-testid="text-contact-description">
-            Unlock smarter, greener fleet operations with ROQIT let's power up your game.
+            We're opening limited slots for visionary partners to co-create the future of asset and sustainability management through customized Proof of Concept (POC) engagements.
           </p>
           <div className="bg-gradient-to-r from-primary/10 via-blue-50 dark:via-blue-900/20 to-primary/10 border border-primary/20 dark:border-primary/30 rounded-xl p-4 max-w-2xl mx-auto mb-8">
-            <p className="text-lg font-semibold text-primary mb-2">🚀 Request Your Proof of Concept</p>
-            <p className="text-slate-700 dark:text-slate-300">Experience ROQIT's capabilities firsthand with a personalized demonstration. <span className="font-medium text-primary">Limited spots available</span> - secure your POC session today!</p>
+            <p className="text-lg font-semibold text-primary mb-2">🚀 Apply Now</p>
+            <p className="text-slate-700 dark:text-slate-300">If you are looking to solve real operational challenges with AI powered insight and scalable tech, apply now. <span className="font-medium text-primary">Spots are limited</span> and selection is at ROQIT's discretion to ensure the right fit and impact.</p>
           </div>
         </div>
         
