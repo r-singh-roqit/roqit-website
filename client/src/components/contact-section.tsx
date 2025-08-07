@@ -325,7 +325,7 @@ export default function ContactSection() {
                           }`}
                           data-testid={`button-number-of-assets-${option.value.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}
                         >
-                          {option.label}
+                          <span className="text-sm">{option.label}</span>
                         </button>
                       ))}
                     </div>
