@@ -89,7 +89,7 @@ export default function ContactSection() {
           </div>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           <div className={`bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/60 dark:border-slate-600/60 rounded-2xl p-8 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
@@ -282,7 +282,8 @@ export default function ContactSection() {
                       { value: "Machinery", icon: "⚙️" },
                       { value: "Ships", icon: "🚢" },
                       { value: "Immoveable assets", icon: "🏢" },
-                      { value: "Mixed assets", icon: "📦" }
+                      { value: "Mixed assets", icon: "📦" },
+                      { value: "Others", icon: "📋" }
                     ].map((option) => (
                       <button
                         key={option.value}
@@ -307,25 +308,26 @@ export default function ContactSection() {
                     <Label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                       Number of Assets
                     </Label>
-                    <div className="flex gap-2" data-testid="radio-group-number-of-assets">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3" data-testid="radio-group-number-of-assets">
                       {[
-                        { value: "1-100", label: "1-100", desc: "Small" },
-                        { value: "100-1000", label: "100-1000", desc: "Medium" },
-                        { value: "1000+", label: "1000+", desc: "Large" }
+                        { value: "1-100", label: "1-100", desc: "Small Fleet", icon: "🚗" },
+                        { value: "100-1000", label: "100-1000", desc: "Medium Fleet", icon: "🚛" },
+                        { value: "1000+", label: "1000+", desc: "Large Fleet", icon: "🚢" }
                       ].map((option) => (
                         <button
                           key={option.value}
                           type="button"
                           onClick={() => handleInputChange("numberOfAssets", option.value)}
-                          className={`flex-1 p-4 rounded-lg border-2 text-center transition-all duration-200 ${
+                          className={`flex flex-col items-center justify-center p-6 rounded-xl border-2 text-center transition-all duration-200 min-h-[100px] ${
                             formData.numberOfAssets === option.value
-                              ? 'border-primary bg-primary text-white shadow-md'
-                              : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:bg-primary/5'
+                              ? 'border-primary bg-primary text-white shadow-lg transform scale-105'
+                              : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:bg-primary/5 hover:shadow-md'
                           }`}
                           data-testid={`button-number-of-assets-${option.value.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}
                         >
-                          <div className="text-lg font-bold">{option.label}</div>
-                          <div className="text-xs opacity-75">{option.desc}</div>
+                          <div className="text-2xl mb-2">{option.icon}</div>
+                          <div className="text-xl font-bold mb-1">{option.label}</div>
+                          <div className="text-sm opacity-75">{option.desc}</div>
                         </button>
                       ))}
                     </div>
