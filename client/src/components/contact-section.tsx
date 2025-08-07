@@ -119,7 +119,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-slate-900 dark:text-white">Office</div>
-                  <div className="text-slate-600 dark:text-slate-300 leading-relaxed">6th floor, Thub, Raidurgam, Knowledge City Rd, panmaktha, Hyderabad, Serilingampalle (M), Telangana 500081</div>
+                  <div className="text-slate-600 dark:text-slate-300 leading-relaxed">6th floor, Thub, Raidurgam, Knowledge City rd, Panmaktha, Hyderabad, Serilingampalle (M), Telangana 500081</div>
                 </div>
               </div>
             </div>
