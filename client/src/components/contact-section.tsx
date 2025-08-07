@@ -245,55 +245,90 @@ export default function ContactSection() {
                 </div>
                 
                 <div>
-                  <Label htmlFor="companySize" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                  <Label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                     Company Size
                   </Label>
-                  <Select value={formData.companySize} onValueChange={(value) => handleInputChange("companySize", value)}>
-                    <SelectTrigger data-testid="select-company-size">
-                      <SelectValue placeholder="Select company size" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Startup (1-50 employees)">Startup (1-50 employees)</SelectItem>
-                      <SelectItem value="SME (51-250)">SME (51-250)</SelectItem>
-                      <SelectItem value="Mid-market (251-1000)">Mid-market (251-1000)</SelectItem>
-                      <SelectItem value="Enterprise (1000+)">Enterprise (1000+)</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2" data-testid="radio-group-company-size">
+                    {[
+                      { value: "Startup (1-50 employees)", label: "Startup\n(1-50)" },
+                      { value: "SME (51-250)", label: "SME\n(51-250)" },
+                      { value: "Mid-market (251-1000)", label: "Mid-market\n(251-1000)" },
+                      { value: "Enterprise (1000+)", label: "Enterprise\n(1000+)" }
+                    ].map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => handleInputChange("companySize", option.value)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all duration-200 whitespace-pre-line text-center ${
+                          formData.companySize === option.value
+                            ? 'border-primary bg-primary text-white shadow-md'
+                            : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:bg-primary/5'
+                        }`}
+                        data-testid={`button-company-size-${option.value.split(' ')[0].toLowerCase()}`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 
                 <div>
-                  <Label htmlFor="assetTypes" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                  <Label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                     Type of Assets
                   </Label>
-                  <Select value={formData.assetTypes} onValueChange={(value) => handleInputChange("assetTypes", value)}>
-                    <SelectTrigger data-testid="select-asset-types">
-                      <SelectValue placeholder="Select asset types" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Vehicles">Vehicles</SelectItem>
-                      <SelectItem value="Machinery">Machinery</SelectItem>
-                      <SelectItem value="Ships">Ships</SelectItem>
-                      <SelectItem value="Immoveable assets">Immoveable assets</SelectItem>
-                      <SelectItem value="Mixed assets">Mixed assets</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <div className="flex flex-wrap gap-2" data-testid="radio-group-asset-types">
+                    {[
+                      { value: "Vehicles", icon: "🚛" },
+                      { value: "Machinery", icon: "⚙️" },
+                      { value: "Ships", icon: "🚢" },
+                      { value: "Immoveable assets", icon: "🏢" },
+                      { value: "Mixed assets", icon: "📦" }
+                    ].map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => handleInputChange("assetTypes", option.value)}
+                        className={`flex items-center gap-2 px-4 py-3 rounded-lg border-2 text-sm font-medium transition-all duration-200 ${
+                          formData.assetTypes === option.value
+                            ? 'border-primary bg-primary text-white shadow-md'
+                            : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:bg-primary/5'
+                        }`}
+                        data-testid={`button-asset-type-${option.value.toLowerCase().replace(/\s+/g, '-')}`}
+                      >
+                        <span>{option.icon}</span>
+                        <span>{option.value}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <Label htmlFor="numberOfAssets" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    <Label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                       Number of Assets
                     </Label>
-                    <Select value={formData.numberOfAssets} onValueChange={(value) => handleInputChange("numberOfAssets", value)}>
-                      <SelectTrigger data-testid="select-number-of-assets">
-                        <SelectValue placeholder="Select asset count" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1-100">1-100</SelectItem>
-                        <SelectItem value="100-1000">100-1000</SelectItem>
-                        <SelectItem value="1000+">1000+</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <div className="flex gap-2" data-testid="radio-group-number-of-assets">
+                      {[
+                        { value: "1-100", label: "1-100", desc: "Small" },
+                        { value: "100-1000", label: "100-1000", desc: "Medium" },
+                        { value: "1000+", label: "1000+", desc: "Large" }
+                      ].map((option) => (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() => handleInputChange("numberOfAssets", option.value)}
+                          className={`flex-1 p-4 rounded-lg border-2 text-center transition-all duration-200 ${
+                            formData.numberOfAssets === option.value
+                              ? 'border-primary bg-primary text-white shadow-md'
+                              : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:bg-primary/5'
+                          }`}
+                          data-testid={`button-number-of-assets-${option.value.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}
+                        >
+                          <div className="text-lg font-bold">{option.label}</div>
+                          <div className="text-xs opacity-75">{option.desc}</div>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                   
                   <div>
