@@ -73,9 +73,6 @@ export default function ContactSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20 lg:mb-24">
-          <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 dark:bg-primary/20 text-primary ring-1 ring-inset ring-primary/20 dark:ring-primary/30 mb-6">
-            💬 Get In Touch
-          </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="text-contact-title">
             Ready to improve your business?
           </h2>
