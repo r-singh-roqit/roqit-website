@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Switzer', 'sans-serif'],
-        'heading': ['Switzer', 'sans-serif'],
+        'sans': ['Poppins', 'sans-serif'],
+        'heading': ['Poppins', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
