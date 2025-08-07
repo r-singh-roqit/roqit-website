@@ -11,14 +11,16 @@ export const users = pgTable("users", {
 
 export const contactSubmissions = pgTable("contact_submissions", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  firstName: text("first_name").notNull(),
-  lastName: text("last_name").notNull(),
+  name: text("name").notNull(),
   company: text("company").notNull(),
   email: text("email").notNull(),
   phone: text("phone").notNull(),
+  website: text("website").default(""),
   industry: text("industry").notNull(),
-  fleetSize: text("fleet_size").notNull(),
-  message: text("message").notNull(),
+  companySize: text("company_size").notNull(),
+  assetTypes: text("asset_types").notNull(),
+  numberOfAssets: text("number_of_assets").notNull(),
+  usesIotSystem: text("uses_iot_system").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

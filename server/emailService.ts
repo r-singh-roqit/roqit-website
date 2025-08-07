@@ -8,13 +8,16 @@ const mailService = new MailService();
 mailService.setApiKey(process.env.SENDGRID_API_KEY);
 
 interface ContactFormData {
-  firstName: string;
-  lastName: string;
+  name: string;
   company: string;
   email: string;
   phone: string;
-  fleetSize: string;
-  message: string;
+  website?: string | null;
+  industry: string;
+  companySize: string;
+  assetTypes: string;
+  numberOfAssets: string;
+  usesIotSystem: string;
 }
 
 export async function sendContactFormEmail(formData: ContactFormData): Promise<boolean> {
@@ -22,7 +25,7 @@ export async function sendContactFormEmail(formData: ContactFormData): Promise<b
     const emailContent = {
       to: 'info@roqit.com',
       from: 'noreply@roqit.com', // This should be a verified sender domain
-      subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
+      subject: `New Contact Form Submission from ${formData.name}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -50,7 +53,7 @@ export async function sendContactFormEmail(formData: ContactFormData): Promise<b
             <div class="content">
               <div class="field">
                 <div class="label">👤 Name:</div>
-                <div class="value">${formData.firstName} ${formData.lastName}</div>
+                <div class="value">${formData.name}</div>
               </div>
               
               <div class="field">
@@ -68,14 +71,34 @@ export async function sendContactFormEmail(formData: ContactFormData): Promise<b
                 <div class="value">${formData.phone}</div>
               </div>
               
+              ${formData.website ? `<div class="field">
+                <div class="label">🌐 Website:</div>
+                <div class="value">${formData.website}</div>
+              </div>` : ''}
+              
               <div class="field">
-                <div class="label">🚛 Fleet Size:</div>
-                <div class="value">${formData.fleetSize}</div>
+                <div class="label">🏭 Industry:</div>
+                <div class="value">${formData.industry}</div>
               </div>
               
-              <div class="message-box">
-                <div class="label">💬 Message:</div>
-                <div class="value">${formData.message}</div>
+              <div class="field">
+                <div class="label">📊 Company Size:</div>
+                <div class="value">${formData.companySize}</div>
+              </div>
+              
+              <div class="field">
+                <div class="label">🚛 Asset Types:</div>
+                <div class="value">${formData.assetTypes}</div>
+              </div>
+              
+              <div class="field">
+                <div class="label">📈 Number of Assets:</div>
+                <div class="value">${formData.numberOfAssets}</div>
+              </div>
+              
+              <div class="field">
+                <div class="label">🔧 Uses IoT/Fleet Management System:</div>
+                <div class="value">${formData.usesIotSystem}</div>
               </div>
               
               <div class="footer">
@@ -90,14 +113,16 @@ export async function sendContactFormEmail(formData: ContactFormData): Promise<b
       text: `
 New Contact Form Submission - ROQIT
 
-Name: ${formData.firstName} ${formData.lastName}
+Name: ${formData.name}
 Company: ${formData.company}
 Email: ${formData.email}
 Phone: ${formData.phone}
-Fleet Size: ${formData.fleetSize}
-
-Message:
-${formData.message}
+${formData.website ? `Website: ${formData.website}` : ''}
+Industry: ${formData.industry}
+Company Size: ${formData.companySize}
+Asset Types: ${formData.assetTypes}
+Number of Assets: ${formData.numberOfAssets}
+Uses IoT/Fleet Management System: ${formData.usesIotSystem}
 
 Please respond to the customer at: ${formData.email}
       `

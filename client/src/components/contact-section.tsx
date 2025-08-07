@@ -13,14 +13,16 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 export default function ContactSection() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     company: "",
     email: "",
     phone: "",
+    website: "",
     industry: "",
-    fleetSize: "",
-    message: ""
+    companySize: "",
+    assetTypes: "",
+    numberOfAssets: "",
+    usesIotSystem: ""
   });
 
   const contactMutation = useMutation({
@@ -30,17 +32,19 @@ export default function ContactSection() {
     onSuccess: () => {
       toast({
         title: "Success!",
-        description: "Thank you for your interest! We will contact you soon.",
+        description: "Thank you for your interest! A member of the ROQIT team will contact you shortly.",
       });
       setFormData({
-        firstName: "",
-        lastName: "",
+        name: "",
         company: "",
         email: "",
         phone: "",
+        website: "",
         industry: "",
-        fleetSize: "",
-        message: ""
+        companySize: "",
+        assetTypes: "",
+        numberOfAssets: "",
+        usesIotSystem: ""
       });
     },
     onError: (error: any) => {
@@ -130,138 +134,183 @@ export default function ContactSection() {
           }`}
           style={{ transitionDelay: '400ms' }}
           data-testid="contact-form-container">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6" data-testid="text-contact-form-title">Send us a message</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6" data-testid="text-contact-form-title">Contact Information</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* Contact Info Section */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-600 pb-2">Contact Info</h4>
+                
                 <div>
-                  <Label htmlFor="firstName" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                    First Name
+                  <Label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Name
                   </Label>
                   <Input
-                    id="firstName"
+                    id="name"
                     type="text"
-                    value={formData.firstName}
-                    onChange={(e) => handleInputChange("firstName", e.target.value)}
-                    placeholder="John"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                    placeholder="John Doe"
                     required
-                    data-testid="input-first-name"
+                    data-testid="input-name"
                   />
                 </div>
+                
                 <div>
-                  <Label htmlFor="lastName" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                    Last Name
+                  <Label htmlFor="company" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Company Name
                   </Label>
                   <Input
-                    id="lastName"
+                    id="company"
                     type="text"
-                    value={formData.lastName}
-                    onChange={(e) => handleInputChange("lastName", e.target.value)}
-                    placeholder="Doe"
+                    value={formData.company}
+                    onChange={(e) => handleInputChange("company", e.target.value)}
+                    placeholder="Your Company"
                     required
-                    data-testid="input-last-name"
+                    data-testid="input-company"
+                  />
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                      Official Email
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      placeholder="john@company.com"
+                      required
+                      data-testid="input-email"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                      Phone Number
+                    </Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange("phone", e.target.value)}
+                      placeholder="+91 98765 43210"
+                      required
+                      data-testid="input-phone"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <Label htmlFor="website" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Website
+                  </Label>
+                  <Input
+                    id="website"
+                    type="url"
+                    value={formData.website}
+                    onChange={(e) => handleInputChange("website", e.target.value)}
+                    placeholder="https://company.com"
+                    data-testid="input-website"
                   />
                 </div>
               </div>
               
-              <div>
-                <Label htmlFor="company" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  Company
-                </Label>
-                <Input
-                  id="company"
-                  type="text"
-                  value={formData.company}
-                  onChange={(e) => handleInputChange("company", e.target.value)}
-                  placeholder="Your Company"
-                  required
-                  data-testid="input-company"
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="industry" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  Industry
-                </Label>
-                <Select value={formData.industry} onValueChange={(value) => handleInputChange("industry", value)}>
-                  <SelectTrigger data-testid="select-industry">
-                    <SelectValue placeholder="Select your industry" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Logistics & Transportation">Logistics & Transportation</SelectItem>
-                    <SelectItem value="Construction">Construction</SelectItem>
-                    <SelectItem value="Mining">Mining</SelectItem>
-                    <SelectItem value="Agriculture">Agriculture</SelectItem>
-                    <SelectItem value="Oil & Gas">Oil & Gas</SelectItem>
-                    <SelectItem value="Delivery Services">Delivery Services</SelectItem>
-                    <SelectItem value="Public Transportation">Public Transportation</SelectItem>
-                    <SelectItem value="Waste Management">Waste Management</SelectItem>
-                    <SelectItem value="Emergency Services">Emergency Services</SelectItem>
-                    <SelectItem value="Manufacturing">Manufacturing</SelectItem>
-                    <SelectItem value="Other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div>
-                <Label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                  placeholder="john@company.com"
-                  required
-                  data-testid="input-email"
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  Phone
-                </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
-                  placeholder="+91 98765 43210"
-                  required
-                  data-testid="input-phone"
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="fleetSize" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  Fleet Size
-                </Label>
-                <Select value={formData.fleetSize} onValueChange={(value) => handleInputChange("fleetSize", value)}>
-                  <SelectTrigger data-testid="select-fleet-size">
-                    <SelectValue placeholder="Select fleet size" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="1-10 vehicles">1-10 vehicles</SelectItem>
-                    <SelectItem value="11-50 vehicles">11-50 vehicles</SelectItem>
-                    <SelectItem value="51-100 vehicles">51-100 vehicles</SelectItem>
-                    <SelectItem value="100+ vehicles">100+ vehicles</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div>
-                <Label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  Message
-                </Label>
-                <Textarea
-                  id="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => handleInputChange("message", e.target.value)}
-                  placeholder="Tell us about your fleet management needs..."
-                  required
-                  data-testid="textarea-message"
-                />
+              {/* Company Info Section */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-600 pb-2">Company Info</h4>
+                
+                <div>
+                  <Label htmlFor="industry" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Industry
+                  </Label>
+                  <Select value={formData.industry} onValueChange={(value) => handleInputChange("industry", value)}>
+                    <SelectTrigger data-testid="select-industry">
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Logistics">Logistics</SelectItem>
+                      <SelectItem value="Railways">Railways</SelectItem>
+                      <SelectItem value="Utilities">Utilities</SelectItem>
+                      <SelectItem value="Construction">Construction</SelectItem>
+                      <SelectItem value="Mining">Mining</SelectItem>
+                      <SelectItem value="Agriculture">Agriculture</SelectItem>
+                      <SelectItem value="Oil & Gas">Oil & Gas</SelectItem>
+                      <SelectItem value="Manufacturing">Manufacturing</SelectItem>
+                      <SelectItem value="Transportation">Transportation</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div>
+                  <Label htmlFor="companySize" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Company Size
+                  </Label>
+                  <Select value={formData.companySize} onValueChange={(value) => handleInputChange("companySize", value)}>
+                    <SelectTrigger data-testid="select-company-size">
+                      <SelectValue placeholder="Select company size" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Startup (1-50 employees)">Startup (1-50 employees)</SelectItem>
+                      <SelectItem value="SME (51-250)">SME (51-250)</SelectItem>
+                      <SelectItem value="Mid-market (251-1000)">Mid-market (251-1000)</SelectItem>
+                      <SelectItem value="Enterprise (1000+)">Enterprise (1000+)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div>
+                  <Label htmlFor="assetTypes" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Type of Assets
+                  </Label>
+                  <Select value={formData.assetTypes} onValueChange={(value) => handleInputChange("assetTypes", value)}>
+                    <SelectTrigger data-testid="select-asset-types">
+                      <SelectValue placeholder="Select asset types" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Vehicles">Vehicles</SelectItem>
+                      <SelectItem value="Machinery">Machinery</SelectItem>
+                      <SelectItem value="Ships">Ships</SelectItem>
+                      <SelectItem value="Immoveable assets">Immoveable assets</SelectItem>
+                      <SelectItem value="Mixed assets">Mixed assets</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="numberOfAssets" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                      Number of Assets
+                    </Label>
+                    <Select value={formData.numberOfAssets} onValueChange={(value) => handleInputChange("numberOfAssets", value)}>
+                      <SelectTrigger data-testid="select-number-of-assets">
+                        <SelectValue placeholder="Select asset count" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1-100">1-100</SelectItem>
+                        <SelectItem value="100-1000">100-1000</SelectItem>
+                        <SelectItem value="1000+">1000+</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="usesIotSystem" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                      Do you use any IoT or fleet management system?
+                    </Label>
+                    <Select value={formData.usesIotSystem} onValueChange={(value) => handleInputChange("usesIotSystem", value)}>
+                      <SelectTrigger data-testid="select-uses-iot-system">
+                        <SelectValue placeholder="Select yes or no" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Yes">Yes</SelectItem>
+                        <SelectItem value="No">No</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
               </div>
               
               <Button 
