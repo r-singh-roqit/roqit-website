@@ -96,26 +96,26 @@ export default function About() {
             <Card data-testid="card-team-member-1">
               <CardContent className="p-8 text-center">
                 <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
-                  alt="CEO and Founder"
+                  src="/attached_assets/1728385218328_1754635859675.jpeg" 
+                  alt="Pavan Chavali"
                   className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
                 />
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Rahul Sharma</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Pavan Chavali</h3>
                 <p className="text-slate-600 dark:text-slate-300 mb-2">CEO & Founder</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Former Tesla, 15+ years in fleet tech</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Visionary leader in fleet technology</p>
               </CardContent>
             </Card>
 
             <Card data-testid="card-team-member-2">
               <CardContent className="p-8 text-center">
                 <img 
-                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
-                  alt="CTO"
+                  src="/attached_assets/1623830035151_1754635912687.jpeg" 
+                  alt="Bhanutej Mallangi"
                   className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
                 />
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Priya Patel</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Bhanutej Mallangi</h3>
                 <p className="text-slate-600 dark:text-slate-300 mb-2">CTO</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">AI/ML expert, former Google</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Technology expert and innovator</p>
               </CardContent>
             </Card>
           </div>
