@@ -2,6 +2,8 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import colorfulBullseye from "@/assets/colorful-bullseye.svg";
+import pavanChavali from "@/assets/pavan-chavali.jpeg";
+import bhanutejMallangi from "@/assets/bhanutej-mallangi.jpeg";
 
 export default function About() {
   return (
@@ -96,7 +98,7 @@ export default function About() {
             <Card data-testid="card-team-member-1">
               <CardContent className="p-8 text-center">
                 <img 
-                  src="/attached_assets/1728385218328_1754635859675.jpeg" 
+                  src={pavanChavali} 
                   alt="Pavan Chavali"
                   className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
                 />
@@ -109,7 +111,7 @@ export default function About() {
             <Card data-testid="card-team-member-2">
               <CardContent className="p-8 text-center">
                 <img 
-                  src="/attached_assets/1623830035151_1754635912687.jpeg" 
+                  src={bhanutejMallangi} 
                   alt="Bhanutej Mallangi"
                   className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
                 />
