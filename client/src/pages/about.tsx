@@ -1,7 +1,7 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
-import colorfulBullseye from "@/assets/colorful-bullseye.svg";
+import missionTarget from "@/assets/mission-success-target.jpg";
 import pavanChavali from "@/assets/pavan-chavali.jpeg";
 import bhanutejMallangi from "@/assets/bhanutej-mallangi.jpeg";
 
@@ -37,8 +37,8 @@ export default function About() {
             </div>
             <div className="flex justify-center">
               <img 
-                src={colorfulBullseye}
-                alt="Colorful target with arrow representing ROQIT's focused mission and goals" 
+                src={missionTarget}
+                alt="Success target with dart representing ROQIT's focused mission and goals" 
                 className="w-80 h-80 object-contain" 
                 data-testid="img-mission"
               />
