@@ -303,48 +303,46 @@ export default function ContactSection() {
                   </div>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <Label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
-                      Number of Assets
-                    </Label>
-                    <div className="flex gap-3" data-testid="radio-group-number-of-assets">
-                      {[
-                        { value: "1-100", label: "1-100" },
-                        { value: "100-1000", label: "100-1000" },
-                        { value: "1000+", label: "1000+" }
-                      ].map((option) => (
-                        <button
-                          key={option.value}
-                          type="button"
-                          onClick={() => handleInputChange("numberOfAssets", option.value)}
-                          className={`flex-1 p-4 rounded-lg border-2 text-center transition-all duration-200 ${
-                            formData.numberOfAssets === option.value
-                              ? 'border-primary bg-primary text-white shadow-md'
-                              : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:bg-primary/5'
-                          }`}
-                          data-testid={`button-number-of-assets-${option.value.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}
-                        >
-                          <span className="text-sm">{option.label}</span>
-                        </button>
-                      ))}
-                    </div>
+                <div>
+                  <Label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
+                    Number of Assets
+                  </Label>
+                  <div className="flex gap-3" data-testid="radio-group-number-of-assets">
+                    {[
+                      { value: "1-100", label: "1-100" },
+                      { value: "100-1000", label: "100-1000" },
+                      { value: "1000+", label: "1000+" }
+                    ].map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => handleInputChange("numberOfAssets", option.value)}
+                        className={`flex-1 p-4 rounded-lg border-2 text-center transition-all duration-200 ${
+                          formData.numberOfAssets === option.value
+                            ? 'border-primary bg-primary text-white shadow-md'
+                            : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:bg-primary/5'
+                        }`}
+                        data-testid={`button-number-of-assets-${option.value.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}
+                      >
+                        <span className="text-sm">{option.label}</span>
+                      </button>
+                    ))}
                   </div>
-                  
-                  <div>
-                    <Label htmlFor="usesIotSystem" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Do you use any IoT or fleet management system?
-                    </Label>
-                    <Select value={formData.usesIotSystem} onValueChange={(value) => handleInputChange("usesIotSystem", value)}>
-                      <SelectTrigger data-testid="select-uses-iot-system">
-                        <SelectValue placeholder="Select yes or no" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Yes">Yes</SelectItem>
-                        <SelectItem value="No">No</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                </div>
+                
+                <div>
+                  <Label htmlFor="usesIotSystem" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Do you use any IoT or fleet management system?
+                  </Label>
+                  <Select value={formData.usesIotSystem} onValueChange={(value) => handleInputChange("usesIotSystem", value)}>
+                    <SelectTrigger data-testid="select-uses-iot-system">
+                      <SelectValue placeholder="Select yes or no" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Yes">Yes</SelectItem>
+                      <SelectItem value="No">No</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
               
