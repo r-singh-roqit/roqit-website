@@ -36,7 +36,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4" data-testid="text-footer-links-title">Quick Links</h4>
             <div className="flex flex-col gap-3 md:items-end">
               <Link href="/about" data-testid="link-footer-about"><span className="text-gray-300 hover:text-primary transition-colors">About Us</span></Link>
-              <Link href="#contact" data-testid="link-footer-contact"><span className="text-gray-300 hover:text-primary transition-colors">Contact</span></Link>
+              <a href="#contact" data-testid="link-footer-contact" className="text-gray-300 hover:text-primary transition-colors">Contact</a>
               <Link href="/privacy" data-testid="link-footer-privacy"><span className="text-gray-300 hover:text-primary transition-colors">Privacy Policy</span></Link>
             </div>
           </div>
