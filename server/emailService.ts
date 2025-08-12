@@ -1,8 +1,8 @@
 import AWS from 'aws-sdk';
 AWS.config.update({
-  region: process.env.AWS_REGION || 'us-east-2',
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.MY_AWS_REGION || 'us-east-2',
+  accessKeyId: process.env.MY_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.MY_AWS_SECRET_ACCESS_KEY,
 });
 
 const ses = new AWS.SES();
@@ -61,7 +61,7 @@ const sendEmail = async (toEmail: string, subject: string, message: string, from
 };
 
 export async function sendContactFormEmail(formData: ContactFormData): Promise<boolean> {
-  if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+  if (!process.env.MY_AWS_ACCESS_KEY_ID || !process.env.MY_AWS_SECRET_ACCESS_KEY) {
     console.warn('AWS credentials not set - skipping email send');
     return false;
   }
