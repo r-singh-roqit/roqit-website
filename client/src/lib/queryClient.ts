@@ -12,7 +12,17 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  // Convert relative API URLs to Netlify Functions URLs
+  let fullUrl = url;
+  if (url.startsWith('/api/')) {
+    // In production (Netlify), use the Netlify Functions path
+    if (typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')) {
+      fullUrl = `/.netlify/functions${url}`;
+    }
+    // In development, keep the relative path for local server
+  }
+
+  const res = await fetch(fullUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -29,7 +39,18 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey.join("/") as string, {
+    let url = queryKey.join("/") as string;
+    
+    // Convert relative API URLs to Netlify Functions URLs
+    if (url.startsWith('/api/')) {
+      // In production (Netlify), use the Netlify Functions path
+      if (typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')) {
+        url = `/.netlify/functions${url}`;
+      }
+      // In development, keep the relative path for local server
+    }
+    
+    const res = await fetch(url, {
       credentials: "include",
     });
 
