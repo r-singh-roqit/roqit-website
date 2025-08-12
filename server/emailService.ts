@@ -152,7 +152,7 @@ export async function sendContactFormEmail(formData: ContactFormData): Promise<b
       </body>
       </html>
     `;
-    await sendEmail('info@roqit.com', subject, htmlMessage);
+    await sendEmail(process.env.SES_TO_EMAIL || 'info@roqit.com', subject, htmlMessage);
     return true;
   } catch (error) {
     console.error('AWS SES email error:', error);
