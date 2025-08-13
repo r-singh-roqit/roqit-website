@@ -208,10 +208,10 @@ export default function ContactSection() {
                   </Label>
                   <Input
                     id="website"
-                    type="url"
+                    type="text"
                     value={formData.website}
                     onChange={(e) => handleInputChange("website", e.target.value)}
-                    placeholder="https://company.com"
+                    placeholder="company.com"
                     data-testid="input-website"
                   />
                 </div>
