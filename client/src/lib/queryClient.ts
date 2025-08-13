@@ -15,8 +15,12 @@ export async function apiRequest(
   // Convert relative API URLs to Netlify Functions URLs
   let fullUrl = url;
   if (url.startsWith('/api/')) {
-    // In production (Netlify), use the Netlify Functions path
-    if (typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')) {
+    // In production (Netlify or roqit.com), use the Netlify Functions path
+    if (typeof window !== 'undefined' && (
+      window.location.hostname.includes('netlify.app') || 
+      window.location.hostname === 'roqit.com' ||
+      window.location.hostname === 'www.roqit.com'
+    )) {
       fullUrl = `/.netlify/functions${url}`;
     }
     // In development, keep the relative path for local server
@@ -43,8 +47,12 @@ export const getQueryFn: <T>(options: {
     
     // Convert relative API URLs to Netlify Functions URLs
     if (url.startsWith('/api/')) {
-      // In production (Netlify), use the Netlify Functions path
-      if (typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')) {
+      // In production (Netlify or roqit.com), use the Netlify Functions path
+      if (typeof window !== 'undefined' && (
+        window.location.hostname.includes('netlify.app') || 
+        window.location.hostname === 'roqit.com' ||
+        window.location.hostname === 'www.roqit.com'
+      )) {
         url = `/.netlify/functions${url}`;
       }
       // In development, keep the relative path for local server
