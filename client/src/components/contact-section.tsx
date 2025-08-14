@@ -97,15 +97,7 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Contact Information</h3>
             
             <div className="space-y-6">
-              <div className="flex items-center space-x-4" data-testid="contact-info-phone">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Phone className="text-primary" size={20} />
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-900 dark:text-white">Phone</div>
-                  <div className="text-slate-600 dark:text-slate-300">+91 98765 43210</div>
-                </div>
-              </div>
+
               
               <div className="flex items-center space-x-4" data-testid="contact-info-email">
                 <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center">
